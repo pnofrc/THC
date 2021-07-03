@@ -21,12 +21,15 @@
      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
      crossorigin=""></script>
 
+     <script src="leaflet.curve.js"></script>
+
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
      <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
      
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
      <script src="html5-qrcode.js"></script>
 <style>
@@ -905,18 +908,19 @@ fileinput.addEventListener('change', e => {
                 enableHighAccuracy: true,
     }}));
 
-    L.easyButton('fa-question-circle-o', function(btn, map){
+    L.easyButton('fa-qrcode fa-2x', function(btn, map){
     $( "#reader" ).fadeToggle()
     $( "#reader" ).css("display","flex")
     $( "#reader" ).css("justify-content","center")
     $( "#reader" ).css("align-items","center")
-  }, 'Colophon', 'colophone').addTo(map);
+  }, 'qr', 'qr').addTo(map);
 
-  L.easyButton("fa-question-circle-o",function(btn,map){
+
+  L.easyButton("fa-arrow-left fa-2x",function(btn,map){
     $('#map').slideUp()
     $( "#reader" ).fadeOut()
 
-  }, 'Colophwon', 'colophonwe').addTo(map);
+  }, 'menu/mappa', 'menu/mappa').addTo(map);
 
 
           // TO CHECK STORED STUFF 
@@ -1016,17 +1020,55 @@ function poly(){
 }
 
 
-var polygon = L.polygon(
-  polypoints
-).addTo(map);
+// Creating multi polyline options
+// var multiPolyLineOptions = {color:'red'};
+
+// Creating multi polylines
+// console.log([polypoints])
+// var multipolyline = L.multiPolyline([polypoints] , multiPolyLineOptions);
+// multipolyline.addTo(map);
+// var polygon = L.polygon(
+//   polypoints
+// );
 
 
-let latCentro = JSON.stringify(polygon.getCenter()["lat"])
-let lngCentro = JSON.stringify(polygon.getCenter()["lng"])
+// let bezier = []
+// while (x > 0){
+//     bezier.push((polypoints[x]))
+//     x--
+// }
+
+
+let lenPoints = Object.keys(polypoints).length
 
 
 
-if (polygon){
+// console.log(arrayPoints[1])
+// var path = L.curve( , {color:'red'}).addTo(map);
+//  console.log(lenPoints)
+arr=[]
+function bezier(){
+    arr.push('M')
+    arr.push(polypoints[0])
+polypoints.forEach(element => {
+    arr.push('T')
+    arr.push(element)
+});
+}
+bezier()
+console.log( arr)
+
+
+
+  let bez = L.curve(arr , {color:'red'}).addTo(map);
+  
+
+  let latCentro = JSON.stringify( bez.getCenter()["lat"])
+let lngCentro = JSON.stringify( bez.getCenter()["lng"])
+
+
+
+if (bez){
     let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
 } else {
