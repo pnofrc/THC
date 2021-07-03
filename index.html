@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Copy3</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- COOKIES API -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+     <!-- LEAFLET -->
+     <link rel="stylesheet" href="leaflet.css" />
+     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+<!-- <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/"></script> -->
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+     <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+     
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <style>
+/* ———————————————————— FONTS  —————————————————————————————————————————————— */
+
+    @font-face {
+      font-family: Apoc;
+      src: url(fonts/ATApocLight.woff);
+      font-weight: normal;
+      font-style: normal;
+      }
+    @font-face {
+      font-family: ApocBold;
+      src: url(fonts/ATApocDark.woff.woff);
+      font-weight: normal;
+      font-style: normal;
+      }
+    @font-face {
+      font-family: Brut;
+      src: url(fonts/Brut_Grotesque-Text.woff);
+      font-weight: normal;
+      font-style: normal;
+      }
+    @font-face {
+      font-family: Union;
+      src: url(fonts/Union-Regular.woff);
+      font-weight: normal;
+      font-style: normal;
+      }
+    @font-face {
+      font-family: UnionBold;
+      src: url(fonts/Union-Bold.woff);
+      font-weight: normal;
+      font-style: normal;
+      }
+/* ———————————————————— BASIC ELEMENTS CSS STYLING  —————————————————————————————————————————————— */
+
+    html {
+      font-family: 'Brut';
+      width: 100%;
+      height: 100%;
+      }
+    body {
+      background: rgba(255,214,0);
+      }
+    .container {
+      font-family: 'Brut';
+      max-width: 100%;
+      position: absolute;
+      z-index: 2;
+      }
+
+/* ————  UNUSED TITLE TO ACTIVATE WITH H5 —————————— */
+
+    .h1, h1 {
+      font-family: 'UnionBold';
+      letter-spacing: -0.5px;  
+      font-size: 17px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      text-align: left;
+      color: black;
+      font-weight: normal;
+      font-style: normal;
+      }
+
+/* ———— LOCATION —————————— */
+
+
+  .h2, h2 {
+      font-family: 'Brut';
+      width: 100%;
+      padding: 1px;
+      margin: 0px;
+      color: black;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 0.6em;
+      }
+
+/* ———— DATE / HOURS —————————— */
+
+    .h3, h3 {
+      font-family: 'Brut';
+      width: 100%;
+      padding: 1px;
+      margin: 0px;
+      color: black;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 0.6em;
+      }
+
+
+/* ———— UNUSED TITLE TO ACTIVATE WITH H1 —————————— */
+
+
+    .h4, h4 {
+      font-family: 'UnionBold';
+      letter-spacing: -0.5px;  
+      font-size: 17px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      text-align: right;
+      color: black;
+      font-weight: normal;
+      font-style: normal;
+      }
+
+/* ———— CURRENT TITLE —————————— */
+
+
+    .h5, h5 {
+      font-family: 'Apoc';
+      letter-spacing: 0px;  
+      font-size: 40px;
+      padding-top: 20px;
+      padding-bottom: 15px;
+      text-align: center;
+      color: black;
+      font-weight: normal;
+      font-style: normal;
+      }
+
+/* ———— UNUSED ALTERNATIVE TITLE  —————————— */
+
+    .flex-container {
+		  display: flex;
+      }
+	  .flex-container > h1 {
+      text-align: left;
+		  margin: 10px;
+		  padding: 10px;
+		  width: 50%;
+      }
+	  .flex-container > h4 {
+      text-align: right;
+		  margin: 10px;
+  		padding: 10px;
+  		width: 50%;
+      }
+
+/* ———————————————————— GRID  —————————————————————————————————————————————— */
+
+    .grid {
+      font-family: 'Brut';
+      height: 100px;
+      width: 100%;
+      }
+
+/* ———————————————————— GRID ITEM FOR ALL LOCATIONS/EVENTS BOX —————————————————————————————————————————————— */
+
+      .grid-item {  
+        font-family: 'Apoc';
+        border-radius: 20px 20px 20px 20px;
+        width: 33%;
+        background-color: rgb(253, 214, 5);
+        border-width: thick;
+        box-shadow: rgba(230, 178, 0, 0.58) 0px 0px 11px 0px;
+        padding: 5px;
+        margin: 1px;
+        color: black;
+        stroke: black;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1em;
+        transition-timing-function: ease-in-out;
+      }
+      .grid-item:hover {
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: rgba(230, 178, 0, 0.75) 0px 0px 11px 0px;
+        color: black;
+        padding-right: 500px;
+        background-color: rgb(253, 224, 5);
+        transition-duration: 0.5s;
+        transition-timing-function: ease-out;        
+        transition-delay: 0s;
+      }
+
+/* ———————————————————— BTN FOR ALL CATEOGORIES —————————————————————————————————————————————— */
+ 
+     .btn-success {
+        font-family: 'Apoc';
+        border-color: black;
+        border-radius: 10px 10px 10px 10px;
+        max-width: 50%;
+        background-color: black;
+        stroke-width: 0px;
+        padding: 5px;
+        margin: 1px;
+        color: white;
+        text-align: center; 
+      }
+    .btn-success:hover {
+        font-family: 'Apoc';
+        border-color: black;
+        border-radius: 15px 15px  15px 15px;
+        stroke-width: 0px;
+        color: black;
+        background-color: rgb(255,224,0);
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+      }
+    .btn-success:not([disabled]):not(.disabled).active, .btn-success:not([disabled]):not(.disabled):active, .show > .btn-success.dropdown-toggle {   
+        font-family: 'Apoc';
+        color: black;
+        border-color: rgb(255,224,0);
+		    border-radius: 15px 15px  15px 15px;
+        stroke-width: 1px;
+        background-color: rgb(255,224,0);
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
+        -webkit-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
+        -moz-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);      
+      }
+
+      #map{
+        width: 100%;
+        height: 100vh;
+        display: none;
+        /* position: relative;
+        z-index: 1; */
+      }
+
+
+/* ———————————————————— MEDIA QUERIES MAX 630 PX —————————————————————————————————————————————— */
+
+
+@media only screen and (max-width : 630px){
+
+      .h1, h1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+     .h2, h2 {
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        color: black;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0.6em;
+      }
+      .h3, h3 {
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        text-align: center;
+        color: rgb(253 214 2);
+        white-space: nowrap;
+        font-size: 0.6em;
+      }
+      .grid {
+        height: 100px;
+        width: 100%;
+      }
+
+      .grid-item {
+        border-radius: 10px 10px 0px 0px;
+        width: 49%;
+        padding: 1px;
+        margin: 1px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1em;
+      }
+
+      .grid-item:hover {
+        padding-right: 100px;
+
+      }
+    }
+
+/* ———————————————————— MEDIA QUERIES - MAX 400 PX—————————————————————————————————————————————— */
+
+
+@media only screen and (max-width : 400px){
+
+
+     .h1, h1 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: black;
+      }
+
+     .h2, h2 {
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        color: black;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0.6em;
+      }
+
+      .h3, h3 {
+        width: 100%;
+        padding: 1px;
+        margin: 0px;
+        color: rgb(253 214 2);
+        text-align: center;
+        white-space: nowrap;
+        font-size: 0.6em;
+      }
+
+      .grid {
+        height: 100px;
+        width: 100%;
+        padding-top: 10px;
+      }
+
+      .grid-item {
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        padding: 1px;
+        margin: 1px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1em;
+      }
+
+      .grid-item:hover {
+        padding-right: 400px;
+      }
+
+      .selectedPlace{
+        background-color: red;
+      }
+
+}
+
+
+    </style>
+  </head>
+
+  
+<body>
+
+  <button onclick="showMap()">MAP</button>
+  <object type="html"><div id="map"></div></object>
+
+     
+<!-------------  TITLE --------------------------------------------------------->
+
+   <!--    <div class="flex-container">
+      <h1>UNTITLED</h1>
+      <h4>Path Creator</h4>
+	  </div> -->
+
+<h5>CAUTION<br>WEIRD FLOOR</h5>
+
+    <!-------------  IN MAP --------------------------------------------------------->
+
+
+
+
+    <!-------------  FILTERS --------------------------------------------------------->
+
+<div id="pathcreator" class="container">
+      <div class="filter">
+
+        <button data-name='.All' class="btn btn-success">All</button>
+        <button data-name=".Exhibition" class="btn btn-success">Exhibtion</button>
+        <button data-name=".Books" class="btn btn-success">Books</button>
+        <button data-name=".Graduates" class="btn btn-success">Graduates</button>
+        <button data-name=".Tour" class="btn btn-success">Tour</button>
+        <button data-name=".LargeScale" class="btn btn-success">Large Scale</button>
+        <button data-name=".AutonomousPractice" class="btn btn-success">Autonomous Practice</button>
+        <button data-name=".Poster" class="btn btn-success">Poster</button>
+        <button data-name=".Sculpture" class="btn btn-success">Sculpture</button>
+        <button data-name=".Painting" class="btn btn-success">Painting</button>
+        <button data-name=".Poetry" class="btn btn-success">Poetry</button>
+        <button data-name=".Workshop" class="btn btn-success">Workshop</button>
+        <button data-name=".Collage" class="btn btn-success">Collage</button>
+        <button data-name=".FoodandDrink" class="btn btn-success">Food & Drink</button>
+        <button data-name=".Talk" class="btn btn-success">Talk</button>
+        <button data-name=".Retrospective" class="btn btn-success">Retrospective</button>
+        <button data-name=".Film" class="btn btn-success">Film</button>
+        <button data-name=".ConcerteArt" class="btn btn-success">Concerte Art</button>
+        <button data-name=".AbstractArt" class="btn btn-success">Abstract Art</button>
+        <button data-name=".Performance" class="btn btn-success">Performance</button>
+        <button data-name=".Livestream" class="btn btn-success">Livestream</button>
+        <button data-name=".Music" class="btn btn-success">Music</button>
+        <button data-name=".Photography" class="btn btn-success">Photography</button>
+        <button data-name=".Litterature" class="btn btn-success">Litterature</button>
+        <button data-name=".Interview" class="btn btn-success">Interview</button>
+        <button data-name=".Unknown" class="btn btn-success">Unknown</button>
+        <button data-name=".Podcast" class="btn btn-success">Podcast</button>
+        <button data-name=".Typography" class="btn btn-success">Typography</button>
+        <button data-name=".StreetArt" class="btn btn-success">StreetArt</button>
+        <button data-name=".Video" class="btn btn-success">Video</button>
+        <button data-name=".OpenStudio" class="btn btn-success">OpenStudio</button>
+        <button data-name=".Installation" class="btn btn-success">Installation</button>
+        <button data-name=".Publishing" class="btn btn-success">Publishing</button>
+        <button data-name=".Conversation" class="btn btn-success">Conversation</button>
+        <button data-name=".City" class="btn btn-success">City</button>
+        <button data-name=".DJ" class="btn btn-success">DJ</button>
+        <button data-name=".Group" class="btn btn-success">Group</button>
+        <button data-name=".Solo" class="btn btn-success">Solo</button>
+        <button data-name=".Collaborative" class="btn btn-success">Collaborative</button>
+        <button data-name=".Design" class="btn btn-success">Design</button>
+        <button data-name=".Art" class="btn btn-success">Art</button>
+        <button data-name=".Archive" class="btn btn-success">Archive</button>
+        <button data-name=".Market" class="btn btn-success">Market</button>
+        
+        </div>
+
+        <h1></h1>
+
+    <!-------------GROUP / SOLO / RANDOM SORTING --------------------------------------------------------->
+
+
+
+  
+  <div class="grid">
+
+   <!--TO BE MAYBE USED LATER, CURRENTLY REMOVED BECAUSE NOT APEARING ON THC PROGRAMM
+
+        <div class="grid-item Exhibition">Call for Graduates<h2>1646 & NEST</h2><h3>description</h3></div>
+        <div class="grid-item LargeScale">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item AutonomousPractice">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item LargeScale">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item Poster">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item Group">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item Art">Call for Graduates<h2>1646 & NEST</h2></div>
+        <div class="grid-item City">Call for Graduates<h2>1646 & NEST</h2></div> 
+
+        <div class="grid-item Publishing">Geocaching Game<h2>Experimental Publishing</h2></div>
+        <div class="grid-item Tour">Geocaching Game<h2>Experimental Publishing</h2></div>
+        <div class="grid-item City">Geocaching Game<h2>Experimental Publishing</h2></div> 
+
+        <div class="grid-item Exhibition">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
+        <div class="grid-item Painting">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
+        <div class="grid-item Sculpture">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
+        <div class="grid-item Poetry">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
+        <div class="grid-item Group">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>  
+
+
+        <div class="grid-item Exhibition">OpZicht<h2>Stroom Den Haag</h2></div>    -->
+
+    <!----------------------- Beelden Aan Zee ---------------------------------------->
+
+
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item All">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Exhibition">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Sculpture">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Solo">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Art">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+        <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item LargeScale">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
+
+,
+    <!----------------------- Dürst Britt & Mayhew ---------------------------------------->
+
+
+        <div onclick="checkCookies('DurstBrittMayhew')" class="DurstBrittMayhew grid-item All">Plankenkoorts<h2>Dürst Britt & Mayhew</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('DurstBrittMayhew')" class="DurstBrittMayhew grid-item Solo">Plankenkoorts<h2>Dürst Britt & Mayhew</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('DurstBrittMayhew')" class="DurstBrittMayhew grid-item Exhibition">Plankenkoorts<h2>Dürst Britt & Mayhew</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('DurstBrittMayhew')" class="DurstBrittMayhew grid-item Painting">Plankenkoorts<h2>Dürst Britt & Mayhew</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('DurstBrittMayhew')" class="DurstBrittMayhew grid-item AbstractArt">Plankenkoorts<h2>Dürst Britt & Mayhew</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+    <!----------------------- Fotomuseum Den Haag ---------------------------------------->
+
+
+        <div class="grid-item All">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Photography">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Installation">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+        <div class="grid-item Workshop">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+        <div class="grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+        <div class="grid-item OpenStudio">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+        <div class="grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+        <div class="grid-item Art">Popel Coumou  - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+
+
+    <!----------------------- Fotomuseum Den Haag ---------------------------------------->
+
+
+        <div class="grid-item All">Monster<h2>Galerie Maurits van de Laar</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Monster<h2>Galerie Maurits van de Laar</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Monster<h2>Galerie Maurits van de Laar</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Monster<h2>Galerie Maurits van de Laar</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+    <!----------------------- Galerie Ramakers ---------------------------------------->
+
+
+        <div class="grid-item All">Cool Gray Yellow C<h2>Galerie Ramakers</h2><h3>Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Cool Gray Yellow C<h2>Galerie Ramakers</h2><h3>Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Cool Gray Yellow C<h2>Galerie Ramakers</h2><h3>Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">Cool Gray Yellow C<h2>Galerie Ramakers</h2><h3>Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Cool Gray Yellow C<h2>Galerie Ramakers</h2><h3>Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+    <!----------------------- Gallery Nono ---------------------------------------->
+
+
+        <div class="grid-item All">Welcome to Nono!<h2>Gallery Nono</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Welcome to Nono!<h2>Gallery Nono</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">Welcome to Nono!<h2>Gallery Nono</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Welcome to Nono!<h2>Gallery Nono</h2><h3>Thursday [17:00 - 21:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+    <!----------------------- Heden ---------------------------------------->
+
+
+        <div class="grid-item All">Heden Recollected<h2>Heden</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Heden Recollected<h2>Heden</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Heden Recollected<h2>Heden</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Video">Heden Recollected<h2>Heden</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Photography">Heden Recollected<h2>Heden</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">Art Breakfast<h2>Heden</h2><h3>Saturday [10:00, starts at 11:00]</h3></div>
+        <div class="grid-item FoodandDrink">Art Breakfast<h2>Heden</h2><h3>Saturday [10:00, starts at 11:00]</h3></div>
+        <div class="grid-item Tour">Art Breakfast<h2>Heden</h2><h3>Saturday [10:00, starts at 11:00]</h3></div>
+
+
+    <!----------------------- KM21 ---------------------------------------->
+
+
+        <div class="grid-item All">Upaya<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Upaya<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Installation">Upaya<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Solo">Upaya<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Upaya<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">Yasmijn Yarram with Mickey Yang<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Talk">Yasmijn Yarram with Mickey Yang<h2>KM21</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Video">Yasmijn Yarram with Mickey Yang<h2>KM21</h2><h3>Saturday [12:00]</h3></div>
+        <div class="grid-item Conversation">Yasmijn Yarram with Mickey Yang<h2>KM21</h2><h3>Saturday [12:00]</h3></div>
+
+
+    <!----------------------- Kunstmuseum Den Haag  --------------------------------------->
+
+
+        <div class="grid-item All">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Retrospective">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item ConcerteArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item AbstractArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+        <div class="grid-item All">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Film">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- Mike & Sid --------------------------------------->
+
+
+        <div class="grid-item All">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item Livestream">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item Performance">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item Collaborative">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item Art">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
+
+
+  <!----------------------- NEST--------------------------------------->
+
+
+        <div class="grid-item All">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+        <div class="grid-item Poetry">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+        <div class="grid-item Music">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+        <div class="grid-item Litterature">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+        <div class="grid-item DJ">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+
+
+  <!----------------------- Uit het Gareel--------------------------------------->
+
+
+        <div class="grid-item All">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Music">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Market">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Performance">Uit het Gareel x PAARD<h2>Uit het Gareel</h2><h3>Saturday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- Page Not Found --------------------------------------->
+
+
+        <div class="grid-item All">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Books">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Performance">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Publishing">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Interview">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Collaborative">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Archive">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Design">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Litterature">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Installation">Pavilionesque<h2>Page Not Found</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- Parts Project --------------------------------------->
+
+
+        <div class="grid-item All">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Performance">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Conversation">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- PIP Den Haag --------------------------------------->
+
+
+        <div class="grid-item All">Mystery event<h2>PIP Den Haag</h2><h3>???</h3></div>
+        <div class="grid-item Unknown">Mystery event<h2>PIP Den Haag</h2><h3>???</h3></div>
+
+
+  <!----------------------- The Royal Academy of Art The Hague --------------------------------------->
+
+
+        <div class="grid-item All">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Graduates">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item AutonomousPractice">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Design">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Painting">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Typography">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- Stroom Den Haag --------------------------------------->
+
+
+        <div class="grid-item All">Matters, Acts<h2>Stroom Den Haag</h2><h3>Friday, Saturday, Sunday [12:00 - 17:00]</h3></div>
+        <div class="grid-item Exhibition">Matters, Acts<h2>Stroom Den Haag</h2><h3>Friday, Saturday, Sunday [12:00 - 17:00]</h3></div>
+        <div class="grid-item Installation">Matters, Acts<h2>Stroom Den Haag</h2><h3>Friday, Saturday, Sunday [12:00 - 17:00]</h3></div>
+        <div class="grid-item Video">Matters, Acts<h2>Stroom Den Haag</h2><h3>Friday, Saturday, Sunday [12:00 - 17:00]</h3></div>
+
+        <div class="grid-item All">Walking Seminar Den Haag<h2>Stroom Den Haag</h2><h3>Thursday, Friday, Saturday, Sunday</h3></div>        
+        <div class="grid-item Podcast">Walking Seminar Den Haag<h2>Stroom Den Haag</h2><h3>Thursday, Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item City">Walking Seminar Den Haag<h2>Stroom Den Haag</h2><h3>Thursday, Friday, Saturday, Sunday</h3></div>
+        <div class="grid-item Tour">Walking Seminar Den Haag<h2>Stroom Den Haag</h2><h3>Thursday, Friday, Saturday, Sunday</h3></div>
+
+
+  <!----------------------- Studio Saber --------------------------------------->
+
+
+        <div class="grid-item All">36DaysOfType08: A—Z / 0—9<h2>Studio Saber</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item OpenStudio">36DaysOfType08: A—Z / 0—9<h2>Studio Saber</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Typography">36DaysOfType08: A—Z / 0—9<h2>Studio Saber</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Design">36DaysOfType08: A—Z / 0—9<h2>Studio Saber</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- The Grey Space in the Middle --------------------------------------->
+
+
+        <div class="grid-item All">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+        <div class="grid-item FoodandDrink">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+        <div class="grid-item Music">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+        <div class="grid-item DJ">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+
+
+  <!----------------------- Den Haag Street Art --------------------------------------->
+
+
+        <div class="grid-item All">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Exhibition">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item StreetArt">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item City">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Painting">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Talk">The Hague Street Art<h2>he Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Tour">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Art">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item LargeScale">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Video">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+        <div class="grid-item Installation">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+
+
+  <!----------------------- Trixie --------------------------------------->
+
+
+        <div class="grid-item All"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item OpenStudio"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Workshop"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Graduates"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item AutonomousPractice"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition"> First Open Studios of Trixie <h2>Trixie</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All"> Thirsty Words Off the Page <h2>Trixie</h2><h3>Friday [16:00]</h3></div>
+        <div class="grid-item Poetry"> Thirsty Words Off the Page <h2>Trixie</h2><h3>Friday [16:00]</h3></div>
+        <div class="grid-item Collaborative"> Thirsty Words Off the Page <h2>Trixie</h2><h3>Friday [16:00]</h3></div>
+        <div class="grid-item OpenStudio"> Thirsty Words Off the Page <h2>Trixie</h2><h3>Friday [16:00]</h3></div>
+
+  <!----------------------- West Den Haag --------------------------------------->
+
+        <div class="grid-item All">With/Out<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">With/Out<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">With/Out<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+        <div class="grid-item All">With/Out Panel Discussion <h2>West Den Haag</h2><h3>Sunday, Start: 14:00</div>
+        <div class="grid-item Conversation">With/Out Panel Discussion <h2>West Den Haag</h2><h3>Sunday, Start: 14:00</div>
+
+        <div class="grid-item All">Broeders verheft u ter vrijheid<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Film">Broeders verheft u ter vrijheid<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Installation">Broeders verheft u ter vrijheid<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Performance">Broeders verheft u ter vrijheid<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Broeders verheft u ter vrijheid<h2>West Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- 1646  --------------------------------------->
+
+
+        <div class="grid-item All">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Video">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Solo">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Art">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+
+
+  <!----------------------- The Sculpture Gallery  --------------------------------------->
+
+
+        <div class="grid-item All">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Sculpture">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Group">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div class="grid-item Exhibition">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+    </div>
+    </div>
+
+
+
+    
+
+
+  <!----------------------- JAVASCRIPT / ISOTOPE --------------------------------------->
+<!-- Optional JavaScript - jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="isotope.pkgd.min.js"></script>
+    <script>
+
+
+      
+    // DICTIONARIES
+    var coord = {
+      "BeeldenAanZee": [52.11088616859895, 4.278530355794044], 
+      "DurstBrittMayhew" :[52.07177395858249, 4.3187814134640305]
+
+    }
+
+    // MAP 
+
+    //  create map object, tell it to live in 'map' div and give initial latitude, longitude, zoom values 
+    var map = L.map('map', { scrollWheelZoom: false }).setView([52.071542636346656, 4.302021143034563], 8);
+
+    //  add base map tiles from OpenStreetMap and attribution info to 'map' div
+    var layer = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '<a href="http://osm.org/copyright">&copy; OpenStreetMap</a>'
+    }).addTo(map);
+
+    // layer.getContainer().classList.add('w3-sepia');
+    layer.getContainer().classList.add('w3-greyscale');
+
+    // GPS ON
+    map.addControl(L.control.locate({
+        locateOptions: {
+                enableHighAccuracy: true,
+    }}));
+
+          // TO CHECK STORED STUFF 
+
+      let cookies = []
+      let coo = Cookies.get();
+      let biscottino = Object.keys(coo)
+
+      
+
+
+    var prevIcon = L.icon({
+          iconUrl: 'location.png',
+          iconSize: [50, 50], // size of the icon
+          popupAnchor: [0, -15]
+        });
+
+
+
+
+      
+
+      biscottino.forEach(place => {
+        $(`.${place}`).css('background-color','red')
+        cookies.push(place)
+        // iconsMap()
+      });
+
+      // iconsMap()
+
+      function add(place){
+        $(`.${place}`).css('background-color','red')
+        Cookies.set(place, "0",   { expires: 30 })
+        cookies.push(place)
+
+        //console.log(cookies)
+        let coo = Cookies.get();
+        let biscottino = Object.keys(coo)
+        console.log(biscottino)
+        //iconsMap()
+
+      }
+
+      function less(place){
+        $(`.${place}`).css('background-color','rgba(255,214,0)');
+        Cookies.remove(place);
+        cookies.splice( $.inArray(place, cookies), 1 );
+        let coo = Cookies.get();
+        let biscottino = Object.keys(coo)
+        //console.log(cookies)
+        console.log(biscottino)
+        //iconsMap()
+      }
+    
+
+      function checkCookies(place){
+        if (cookies.includes(place)){
+          less(place)
+          reload()
+        } else {
+          add(place)
+          reload()
+        }
+      }
+
+
+ 
+          console.log(cookies)
+          cookies.forEach(element => {
+            
+            let lon = coord[element][0];
+            let lat = coord[element][1];
+
+            console.log(lon,lat)
+
+            let markerLocation = new L.LatLng(lon,lat);
+            let marker = new L.Marker(markerLocation, {icon: prevIcon})
+            // .on('click', onLocation);
+
+            map.addLayer(marker)
+          });
+
+function reload(){
+  var redirectToURL = '#map';
+  window.location.href = redirectToURL;
+  window.location.reload(true);
+}
+
+
+      function showMap(){
+        jQuery('#map').slideToggle();
+      }
+
+
+
+      var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        getSortData: {
+          name: function (element) {
+            return $(element).text();
+          }
+        }
+      });
+      $('.filter button').on("click", function () {
+        var value = $(this).attr('data-name');
+          $grid.isotope({
+            filter: value
+          });
+        $('.filter button').removeClass('active');
+        $(this).addClass('active');
+      })
+      $('.sort button').on("click", function () {
+        var value = $(this).attr('data-name');
+        $grid.isotope({
+          sortBy: value
+        });
+        $('.sort button').removeClass('active');
+        $(this).addClass('active');
+      })
+      
+    </script>
+  </body>
+</html>
