@@ -1059,7 +1059,6 @@ polypoints.forEach(element => {
 if (coo > 0){
     bezier()
     console.log( arr)
-}
 
 
 
@@ -1071,12 +1070,14 @@ let bez = L.curve(arr , {color:'red'}).addTo(map);
 if (bez){
 
   let latCentro = JSON.stringify( bez.getCenter()["lat"])
-let lngCentro = JSON.stringify( bez.getCenter()["lng"])
+    let lngCentro = JSON.stringify( bez.getCenter()["lng"])
     let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
 } else {
     alert('ca')
     map.panTo(L.latLng(start))
+
+}
 
 }
 
