@@ -847,6 +847,10 @@
       'SculptureGallery': [[52.07672464696959, 4.3124565638957835], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>']
     }
 
+    var colori = ['yellow','red','black','purple']
+    let r = Math.floor(Math.random() * (colori.length ))
+    console.log(r)
+
 
 
     const html5QrCode = new Html5Qrcode(/* element id */ "reader");
@@ -1062,7 +1066,7 @@ bezier()
 if (lenPoints > 0){
 
 
-let bez = L.curve(arr ,{color:"yellow"}).addTo(map);
+let bez = L.curve(arr ,{color: colori[r] }).addTo(map);
 
 
 if (bez){
