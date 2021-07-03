@@ -1064,16 +1064,14 @@ if (coo > 0){
 
 
 
-
-  let bez = L.curve(arr , {color:'red'}).addTo(map);
-  
-
-  let latCentro = JSON.stringify( bez.getCenter()["lat"])
-let lngCentro = JSON.stringify( bez.getCenter()["lng"])
+let bez = L.curve(arr , {color:'red'}).addTo(map);
 
 
 
 if (bez){
+
+  let latCentro = JSON.stringify( bez.getCenter()["lat"])
+let lngCentro = JSON.stringify( bez.getCenter()["lng"])
     let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
 } else {
