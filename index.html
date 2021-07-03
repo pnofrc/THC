@@ -817,7 +817,6 @@
     <script>
 
 
-      
     // DICTIONARIES
     var coord = {
       "BeeldenAanZee": [[52.11088616859895, 4.278530355794044], ''],
@@ -960,6 +959,9 @@ fileinput.addEventListener('change', e => {
         //iconsMap()
       }
     
+      
+
+
 
       function checkCookies(place){
         if (cookies.includes(place)){
@@ -989,7 +991,7 @@ fileinput.addEventListener('change', e => {
 
         let markerLocation = new L.LatLng(lon,lat);
 
-         let marker = new L.Marker(markerLocation, markerOptions).bindPopup(coord[element][1]).addTo(map);
+         let marker = new L.Marker(markerLocation, markerOptions).bindPopup(coord[element][1]+`<br><button onclick=Cookies.remove("${element}");location.reload()>Remove</button>`).addTo(map);
     
         // var marker = new L.Marker(markerLocation, markerOptions)
            
@@ -1046,11 +1048,15 @@ fileinput.addEventListener('change', e => {
           }
         }
       });
+
+
+
       $('.filter button').on("click", function () {
         var value = $(this).attr('data-name');
           $grid.isotope({
             filter: value
           });
+          localStorage.setItem("tagClass",value)
         $('.filter button').removeClass('active');
         $(this).addClass('active');
       })
@@ -1062,9 +1068,25 @@ fileinput.addEventListener('change', e => {
         $('.sort button').removeClass('active');
         $(this).addClass('active');
       })
-
-      //$grid.isotope(".all")
       
+
+
+
+
+    if (localStorage.lenght != 0){
+        intro =  localStorage.getItem("tagClass"); 
+        $grid.isotope({
+                    filter:  intro,
+                });
+
+
+      
+    } else {
+        $grid.isotope({
+                    filter: ".All"
+                });
+    }
+
     </script>
   </body>
 </html>
