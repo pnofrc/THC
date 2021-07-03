@@ -22,7 +22,9 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
-    <style>
+
+     <script src="html5-qrcode.js"></script>
+<style>
 /* ———————————————————— FONTS  —————————————————————————————————————————————— */
 
     @font-face {
@@ -242,8 +244,8 @@
       }
 
       #map{
-        width: 100vw;
-        height: 100vh;
+        width: 99vw;
+         height: 99vw;
         will-change: transform;
         display: none;
         /* position: relative;
@@ -366,6 +368,10 @@
 
   <button onclick="showMap()">MAP</button>
   <div id="map"></div>
+  <div id="reader">
+
+<input type="file" id="qr-input-file" accept="image/*" captured>
+  </div>
   
   <!-- <object type="html"><div id="map"></div></object> -->
 
@@ -757,10 +763,10 @@
   <!----------------------- The Sculpture Gallery  --------------------------------------->
 
 
-        <div onclick="checkCookies('Sculpture')" class="Sculpture grid-item All">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-        <div onclick="checkCookies('Sculpture')" class="Sculpture grid-item Sculpture">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-        <div onclick="checkCookies('Sculpture')" class="Sculpture grid-item Group">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-        <div onclick="checkCookies('Sculpture')" class="Sculpture grid-item Exhibition">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item All">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Sculpture">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Group">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+        <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Exhibition">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
     </div>
     </div>
 
@@ -788,12 +794,12 @@
       'GalerieMauritsvandeLaar':[52.0743590401309, 4.310463657642463],
       'GalerieRamakers':[52.081893912086315, 4.301621998121746],
       'Nono':[52.08130187650738, 4.282041415143106],
-      'Heden':[,],
+      'Heden':[52.084756321851984, 4.312961869286151],
       'KM21':[52.09098545286892, 4.279123116962104],
       'KunstmuseumDenHaag':[52.089918711427686, 4.28064744045068],
-      'MikeSid':[,],
+      'MikeSid':[52.07463690009965, 4.312364801820798],
       'Nest':[52.07759403619619, 4.29164401175612],
-      'UithetGareel':[,],
+      'UithetGareel':[52.07480113905305, 4.308013105469062],
       'PNF':[52.072353820836085, 4.311721236205367],
       'PartProject':[52.08177307188824, 4.301725011614704],
       'kabk':[52.08340664549677, 4.326662958803667],
@@ -804,14 +810,39 @@
       'Trixie':[52.07465535952044, 4.326365818693335],
       'West':[52.082672849187915, 4.315001555793077],
       '1646':[52.072945249401826, 4.311648795181019],
-      'Sculpture':[,]
-
+      'SculptureGallery':[52.07672464696959, 4.3124565638957835]
     }
+
+
+
+    const html5QrCode = new Html5Qrcode(/* element id */ "reader");
+
+// File based scanning
+const fileinput = document.getElementById('qr-input-file');
+fileinput.addEventListener('change', e => {
+  if (e.target.files.length == 0) {
+    // No file selected, ignore 
+    return;
+  }
+
+  // Use the first item in the list
+  const imageFile = e.target.files[0];
+  html5QrCode.scanFile(imageFile, /* showImage= */true)
+  .then(qrCodeMessage => {
+    // success, use qrCodeMessage
+    console.log(qrCodeMessage);
+  })
+  .catch(err => {
+    // failure, handle it.
+    console.log(`Error scanning file. Reason: ${err}`)
+  });
+});
+
 
     // MAP 
 
     //  create map object, tell it to live in 'map' div and give initial latitude, longitude, zoom values 
-    var map = L.map('map', { scrollWheelZoom: true }).setView([52.071542636346656, 4.302021143034563], 12);
+    var map = L.map('map', { scrollWheelZoom: true }).setView([52.0793046656365, 4.313155972254871], 13);
 
     //  add base map tiles from OpenStreetMap and attribution info to 'map' div
     var layer = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -830,6 +861,7 @@
           // TO CHECK STORED STUFF 
 
       let cookies = []
+      let cookiesChanged = []
       let coo = Cookies.get();
       let biscottino = Object.keys(coo)
 
@@ -850,17 +882,17 @@
       biscottino.forEach(place => {
         $(`.${place}`).css('background-color','red')
         cookies.push(place)
-        // iconsMap()
+        cookiesChanged.push(place)
       });
 
-      // iconsMap()
+
+      
 
       function add(place){
         $(`.${place}`).css('background-color','red')
         Cookies.set(place, "0",   { expires: 30 })
         cookies.push(place)
 
-        //console.log(cookies)
         let coo = Cookies.get();
         let biscottino = Object.keys(coo)
         console.log(biscottino)
@@ -872,9 +904,11 @@
         $(`.${place}`).css('background-color','rgba(255,214,0)');
         Cookies.remove(place);
         cookies.splice( $.inArray(place, cookies), 1 );
+        
+        
         let coo = Cookies.get();
         let biscottino = Object.keys(coo)
-        //console.log(cookies)
+        console.log(cookiesChanged)
         console.log(biscottino)
         //iconsMap()
       }
@@ -907,15 +941,23 @@
             map.addLayer(marker)
           });
 
-function reload(){
-  location.reload()
- }
 
 
-      function showMap(){
-        jQuery('#map').slideToggle();
+
+ function showMap(){
+        let isEqual = JSON.stringify(cookies) === JSON.stringify(cookiesChanged);
+        console.log(isEqual);
+
+        if ($("#map").is(':visible')) {
+          $('#map').slideUp();
+        } else {
+          if(!isEqual){
+            location.reload()
+          } else {
+            $('#map').slideDown();
+          }
+        }
       }
-
 
 
       var $grid = $('.grid').isotope({
@@ -943,6 +985,8 @@ function reload(){
         $('.sort button').removeClass('active');
         $(this).addClass('active');
       })
+
+      //$grid.isotope(".all")
       
     </script>
   </body>
