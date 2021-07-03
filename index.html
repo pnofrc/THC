@@ -819,29 +819,29 @@
 
     // DICTIONARIES
     var coord = {
-      "BeeldenAanZee": [[52.11088616859895, 4.278530355794044], ''],
-      "DurstBrittMayhew" : [[52.07177395858249, 4.3187814134640305], ''],
-      'FotomuseumDenHaag': [[52.09565269957886, 4.276968588519751], ''],
-      'GalerieMauritsvandeLaar': [[52.0743590401309, 4.310463657642463], ''],
+      "BeeldenAanZee": [[52.11088616859895, 4.278530355794044], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      "DurstBrittMayhew" : [[52.07177395858249, 4.3187814134640305], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'FotomuseumDenHaag': [[52.09565269957886, 4.276968588519751], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'GalerieMauritsvandeLaar': [[52.0743590401309, 4.310463657642463], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'GalerieRamakers':[[52.081893912086315, 4.301621998121746],'<h1>Galerie Ramakers</h1><br><p>ciao</p>'],
-      'Nono': [[52.08130187650738, 4.282041415143106], ''],
-      'Heden': [[52.084756321851984, 4.312961869286151], ''],
-      'KM21': [[52.09098545286892, 4.279123116962104], ''],
-      'KunstmuseumDenHaag': [[52.089918711427686, 4.28064744045068], ''],
-      'MikeSid': [[52.07463690009965, 4.312364801820798], ''],
-      'Nest': [[52.07759403619619, 4.29164401175612], ''],
-      'UithetGareel': [[52.07480113905305, 4.308013105469062], ''],
-      'PNF':[[52.072353820836085, 4.311721236205367],'ciao'],
-      'PartProject': [[52.08177307188824, 4.301725011614704], ''],
-      'kabk': [[52.08340664549677, 4.326662958803667], ''],
-      'Stroom': [[52.100776633969105, 4.4283011354108215], ''],
-      'StudioSaber':[[51.14185891020335, 5.591358149666528], ' dfef' ], 
-      'grey': [[52.07463690009965, 4.312364801820798], ''],
-      'streetArt': [[52.065505645584444, 4.32051466134149], ''],
-      'Trixie': [[52.07465535952044, 4.326365818693335], ''],
-      'West': [[52.082672849187915, 4.315001555793077], ''],
-      '1646': [[52.072945249401826, 4.311648795181019], ''],
-      'SculptureGallery': [[52.07672464696959, 4.3124565638957835], '']
+      'Nono': [[52.08130187650738, 4.282041415143106], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'Heden': [[52.084756321851984, 4.312961869286151], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'KM21': [[52.09098545286892, 4.279123116962104], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'KunstmuseumDenHaag': [[52.089918711427686, 4.28064744045068], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'MikeSid': [[52.07463690009965, 4.312364801820798], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'Nest': [[52.07759403619619, 4.29164401175612], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'UithetGareel': [[52.07480113905305, 4.308013105469062], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'PNF':[[52.072353820836085, 4.311721236205367],'<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'PartProject': [[52.08177307188824, 4.301725011614704], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'kabk': [[52.08340664549677, 4.326662958803667], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'Stroom': [[52.100776633969105, 4.4283011354108215], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'StudioSaber':[[51.14185891020335, 5.591358149666528], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'grey': [[52.07463690009965, 4.312364801820798], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'streetArt': [[52.065505645584444, 4.32051466134149], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'Trixie': [[52.07465535952044, 4.326365818693335], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'West': [[52.082672849187915, 4.315001555793077], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      '1646': [[52.072945249401826, 4.311648795181019], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'SculptureGallery': [[52.07672464696959, 4.3124565638957835], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>']
     }
 
 
@@ -865,9 +865,9 @@ fileinput.addEventListener('change', e => {
     if (biscottino.includes(qrCodeMessage)){
       Cookies.remove(qrCodeMessage)
       Cookies.set(qrCodeMessage,1);
-      alert('opop')
+      alert(':)')
     } else {
-      alert("Hey! Wrong Place?")
+      alert("Hey! Maybe you went to the wrong place? :O")
     }
   })
   .catch(err => {
@@ -879,8 +879,12 @@ fileinput.addEventListener('change', e => {
 
     // MAP 
 
+    let start = [52.0793046656365, 4.313155972254871]
+
     //  create map object, tell it to live in 'map' div and give initial latitude, longitude, zoom values 
-    var map = L.map('map', { scrollWheelZoom: true }).setView([52.0793046656365, 4.313155972254871], 13);
+    var map = L.map('map', { scrollWheelZoom: true }).setView(start, 13);
+
+
 
     //  add base map tiles from OpenStreetMap and attribution info to 'map' div
     // var layer = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -921,9 +925,6 @@ fileinput.addEventListener('change', e => {
       let cookiesChanged = []
       let coo = Cookies.get();
       let biscottino = Object.keys(coo)
-
-      
-
 
     var prevIcon = L.icon({
           iconUrl: 'location.png',
@@ -1000,24 +1001,43 @@ fileinput.addEventListener('change', e => {
 
           });
 
-          var polypoints = []
 
-          poly()
 
-          function poly(){
-              cookies.forEach(element => {
-                let lon = coord[element][0][0];
-                let lat = coord[element][0][1];
-                polypoints.push([lon,lat])    
-                });
-          }
+    var polypoints = []
 
-          console.log(polypoints)
-    //     //   console.log(poly())
+poly()
 
-          var polygon = L.polygon(
-            polypoints
-          ).addTo(map);
+function poly(){
+    cookies.forEach(element => {
+      let lon = coord[element][0][0];
+      let lat = coord[element][0][1];
+      polypoints.push([lon,lat])    
+      });
+}
+
+
+var polygon = L.polygon(
+  polypoints
+).addTo(map);
+
+
+let latCentro = JSON.stringify(polygon.getCenter()["lat"])
+let lngCentro = JSON.stringify(polygon.getCenter()["lng"])
+
+
+
+if (polygon){
+    let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
+    map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
+} else {
+    alert('ca')
+    map.panTo(L.latLng(start))
+
+}
+
+
+
+
 
 
 
@@ -1068,24 +1088,23 @@ fileinput.addEventListener('change', e => {
         $('.sort button').removeClass('active');
         $(this).addClass('active');
       })
-      
 
 
+    
+      intro =  localStorage.getItem("tagClass"); 
 
-
-    if (localStorage.lenght != 0){
-        intro =  localStorage.getItem("tagClass"); 
+    if (localStorage['tagClass']){
+        console.log(intro)
         $grid.isotope({
                     filter:  intro,
                 });
-
-
-      
     } else {
         $grid.isotope({
                     filter: ".All"
                 });
     }
+
+    
 
     </script>
   </body>
