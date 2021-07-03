@@ -252,6 +252,10 @@
         z-index: 1; */
       }
 
+      #reader{
+        display: none;
+      }
+
 
 /* ———————————————————— MEDIA QUERIES MAX 630 PX —————————————————————————————————————————————— */
 
@@ -368,10 +372,9 @@
 
   <button onclick="showMap()">MAP</button>
   <div id="map"></div>
-  <div id="reader">
 
-<input type="file" id="qr-input-file" accept="image/*" captured>
-  </div>
+
+  <div id="reader"><input type="file" id="qr-input-file" accept="image/*" capture></div>
   
   <!-- <object type="html"><div id="map"></div></object> -->
 
@@ -827,10 +830,17 @@ fileinput.addEventListener('change', e => {
 
   // Use the first item in the list
   const imageFile = e.target.files[0];
-  html5QrCode.scanFile(imageFile, /* showImage= */true)
+  html5QrCode.scanFile(imageFile, /* showImage= */false)
   .then(qrCodeMessage => {
     // success, use qrCodeMessage
     console.log(qrCodeMessage);
+    if (biscottino.includes(qrCodeMessage)){
+      Cookies.remove(qrCodeMessage)
+      Cookies.set(qrCodeMessage,1);
+      alert('opop')
+    } else {
+      alert("Hey! Wrong Place?")
+    }
   })
   .catch(err => {
     // failure, handle it.
@@ -857,6 +867,11 @@ fileinput.addEventListener('change', e => {
         locateOptions: {
                 enableHighAccuracy: true,
     }}));
+
+    L.easyButton('fa-question-circle-o', function(btn, map){
+    $( "#reader" ).slideToggle()
+  }, 'Colophon', 'colophone').addTo(map);
+
 
           // TO CHECK STORED STUFF 
 
@@ -890,7 +905,7 @@ fileinput.addEventListener('change', e => {
 
       function add(place){
         $(`.${place}`).css('background-color','red')
-        Cookies.set(place, "0",   { expires: 30 })
+        Cookies.set(place, 0,   { expires: 30 })
         cookies.push(place)
 
         let coo = Cookies.get();
