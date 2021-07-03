@@ -837,7 +837,7 @@
       'PNF':[[52.072353820836085, 4.311721236205367],'<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'PartProject': [[52.08177307188824, 4.301725011614704], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'kabk': [[52.08340664549677, 4.326662958803667], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
-      'Stroom': [[52.100776633969105, 4.4283011354108215], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
+      'Stroom': [[52.08357264666274, 4.303884855889337], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'StudioSaber':[[51.14185891020335, 5.591358149666528], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'grey': [[52.07463690009965, 4.312364801820798], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'streetArt': [[52.065505645584444, 4.32051466134149], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
@@ -1043,28 +1043,26 @@ let lenPoints = Object.keys(polypoints).length
 
 
 
-// console.log(arrayPoints[1])
-// var path = L.curve( , {color:'red'}).addTo(map);
-//  console.log(lenPoints)
 arr=[]
-function bezier(){
-    arr.push('M')
-    arr.push(polypoints[0])
-polypoints.forEach(element => {
-    arr.push('T')
-    arr.push(element)
-});
+    function bezier(){
+        arr.push('M')
+        arr.push(polypoints[0])
+    polypoints.forEach(element => {
+        // arr.push('M')
+        // arr.push(element)
+        arr.push('T')
+        arr.push(element)
+
+    });
 }
 
-if (coo > 0){
-    bezier()
+bezier()
     console.log( arr)
 
+if (lenPoints > 0){
 
 
-
-let bez = L.curve(arr , {color:'red'}).addTo(map);
-
+let bez = L.curve(arr ,{color:"yellow"}).addTo(map);
 
 
 if (bez){
@@ -1074,9 +1072,7 @@ if (bez){
     let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
 } else {
-    alert('ca')
     map.panTo(L.latLng(start))
-
 }
 
 }
