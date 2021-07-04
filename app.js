@@ -1,11 +1,13 @@
+let madonna = Cookies.get()
 
+if (jQuery.isEmptyObject(madonna)){
+  $("#map").css("display","none")
+  $("#mapToggle").click(function () {
+    location.reload()
+})
+}
 
   let constr = ['NNP','NN']
-
-// var generatedPoet = ''
-
-
-
 
 
 //DICTIONARY
@@ -23,7 +25,7 @@ var dictioPlaces = {
     'MikeSid': [[52.07463690009965, 4.312364801820798], '<br><p>Dolor sit Amet</p>', 'Mike & Sid'],
     'Nest': [[52.07759403619619, 4.29164401175612], '<br><p>Dolor sit Amet</p>', 'NEST',[{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]  ],
     'UithetGareel': [[52.07480113905305, 4.308013105469062], '<br><p>Dolor sit Amet</p>', 'Uit het Gareel'],
-    'PNF':[[52.072353820836085, 4.311721236205367],'<br><p>Dolor sit Amet</p>', 'Page Not Found'],
+    'PNF':[[52.072353820836085, 4.311721236205367],'<br><p>Dolor sit Amet</p>', 'Page Not Found',[{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]  ],
     'PartProject': [[52.08177307188824, 4.301725011614704], '<br><p>Dolor sit Amet</p>', 'Parts Project'],
     'kabk': [[52.08340664549677, 4.326662958803667], '<br><p>Dolor sit Amet</p>', 'PIP Den Haag'],
     'Stroom': [[52.08357264666274, 4.303884855889337], '<br><p>Dolor sit Amet</p>', 'The Royal Academy of Art The Hague'],
@@ -93,6 +95,7 @@ var dictioPlaces = {
   let coo = Cookies.get();
   let biscottino = Object.keys(coo)
 
+
   for (let vc = 0; vc < biscottino.length; vc++){
     let value = Object.values(coo)[vc]
     console.log(value)
@@ -139,10 +142,11 @@ var dictioPlaces = {
     $(`.${cookieDon}`).css('color','black')
 
     if(Cookies.get(cookieDon) == 1){
+      console.log(Cookies.get(cookieDon))
       Cookies.remove(cookieDon)
       let poet = []
         constr.forEach(pos => {
-          let rPos = Math.floor(Math.random() * (dictioPlaces[cookieDon][3][0][pos].length))
+          let rPos = Math.floor(Math.random() * (dictioPlaces[cookieDon][3][0][pos]).length)
           let pp = dictioPlaces[cookieDon][3][0][pos][rPos]
           poet.push(pp)
           // console.log(poet)
@@ -184,7 +188,9 @@ var dictioPlaces = {
   }
   
    
-      
+
+
+
   // CREATE MARKER FOR EACH COOKIE (OPEN)   
   cookies.forEach(element => {
     var markerOptions = {
@@ -327,8 +333,8 @@ var dictioPlaces = {
       // console.log(latitude ,longitude)
       arr.push('M')
       arr.push([latitude,longitude])
-      bezier()
-      bezierDone()
+      // bezier()
+      // bezierDone()
     }
   
     if(!navigator.geolocation) {
@@ -345,6 +351,7 @@ var dictioPlaces = {
               enableHighAccuracy: true,
               showPopup: true,strings: {
                 title: `<div onclick="${geoFindMe()}"></div>`
+                
             },
               maxZoom: 14,
               cacheLocation: true,
