@@ -846,6 +846,10 @@
       '1646': [[52.072945249401826, 4.311648795181019], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>'],
       'SculptureGallery': [[52.07672464696959, 4.3124565638957835], '<h1>Lorem Ipsum</h1><br><p>Dolor sit Amet</p>']
     }
+// console.log(coord)
+    // coord.forEach(element => {
+        console.log(Object.keys(coord))
+    // });
 
     var colori = ['yellow','red','black','purple'];
     let r = Math.floor(Math.random() * (colori.length ))
@@ -869,14 +873,16 @@ fileinput.addEventListener('change', e => {
   .then(qrCodeMessage => {
     // success, use qrCodeMessage
     console.log(qrCodeMessage);
-    if (biscottino.includes(qrCodeMessage)){
-      Cookies.remove(qrCodeMessage)
+    let target= qrCodeMessage.replace('https://github.io/pnofrc/THC/','').replace('.html/','')
+    if (biscottino.includes(target)){
+      Cookies.remove(target);
       Cookies.set(qrCodeMessage,1);
       alert(':)')
     } else {
       alert("Hey! Maybe you went to the wrong place? :O")
     }
-  })
+}
+  )
   .catch(err => {
     // failure, handle it.
     console.log(`Error scanning file. Reason: ${err}`)
