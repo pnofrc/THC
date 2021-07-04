@@ -1,5 +1,4 @@
 
-  let Nest = [{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]
 
   let constr = ['NNP','NN']
 
@@ -20,9 +19,9 @@ var dictioPlaces = {
     'Nono': [[52.08130187650738, 4.282041415143106], '<br><p>Dolor sit Amet</p>', 'Gallery Nono'],
     'Heden': [[52.084756321851984, 4.312961869286151], '<br><p>Dolor sit Amet</p>', 'Heden'],
     'KM21': [[52.09098545286892, 4.279123116962104], '<br><p>Dolor sit Amet</p>', 'KM21'],
-    'KunstmuseumDenHaag': [[52.089918711427686, 4.28064744045068], '<br><p>Dolor sit Amet</p>', 'Kunstmuseum Den Haag'],
+    'KunstmuseumDenHaag': [[52.089918711427686, 4.28064744045068], '<br><p>Dolor sit Amet</p>', 'Kunstmuseum Den Haag',[{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]  ],
     'MikeSid': [[52.07463690009965, 4.312364801820798], '<br><p>Dolor sit Amet</p>', 'Mike & Sid'],
-    'Nest': [[52.07759403619619, 4.29164401175612], '<br><p>Dolor sit Amet</p>', 'NEST'],
+    'Nest': [[52.07759403619619, 4.29164401175612], '<br><p>Dolor sit Amet</p>', 'NEST',[{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]  ],
     'UithetGareel': [[52.07480113905305, 4.308013105469062], '<br><p>Dolor sit Amet</p>', 'Uit het Gareel'],
     'PNF':[[52.072353820836085, 4.311721236205367],'<br><p>Dolor sit Amet</p>', 'Page Not Found'],
     'PartProject': [[52.08177307188824, 4.301725011614704], '<br><p>Dolor sit Amet</p>', 'Parts Project'],
@@ -44,7 +43,11 @@ var dictioPlaces = {
   // random color picker
   var colori = ['yellow','red','black','purple'];
   let r = Math.floor(Math.random() * (colori.length ))
-  let r2 = Math.floor(Math.random() * (colori.length ))
+  let r2 = Math.floor(Math.random() * (colori.length))
+  if (r2 == r){
+    r2
+  }
+  console.log(r2)
   let r3 = Math.floor(Math.random() * (colori.length ))
 
 
@@ -115,9 +118,39 @@ var dictioPlaces = {
     cookiesChanged.push(place)
   });
 
+  // function poet(target){
+
+
+      // function postag(target,pos){
+      //   let rPos = Math.floor(Math.random() * (target[0][pos].length))
+      //   let poet = target[0][pos][rPos]
+      //   generatedPoet= generatedPoet.concat(poet).concat(' ') 
+      //   console.log(generatedPoet)  
+      // }
+
+    // }
+
+    // poet()
+
+
+  
+
   cookiesDone.forEach(cookieDon => {
     $(`.${cookieDon}`).css('background-color','white')
     $(`.${cookieDon}`).css('color','black')
+
+    if(Cookies.get(cookieDon) == 1){
+      Cookies.remove(cookieDon)
+      let poet = []
+        constr.forEach(pos => {
+          let rPos = Math.floor(Math.random() * (dictioPlaces[cookieDon][3][0][pos].length))
+          let pp = dictioPlaces[cookieDon][3][0][pos][rPos]
+          poet.push(pp)
+          // console.log(poet)
+        });  
+        let genPoet = poet.toString().replace(',',' ')
+        Cookies.set(cookieDon,genPoet)
+    }
   })
 
   // TO ADD 
@@ -209,23 +242,9 @@ var dictioPlaces = {
 
       if (cookies.includes(target)){
         
-        function poet(target){Cookies.get();
-    //let biscottino = Object.keys(coo)
-    constr.forEach(pos => {
-      postag(target,pos)
-    });
-          function postag(target,pos){
-            let rPos = Math.floor(Math.random() * (target[0][pos].length))
-            let poet = target[0][pos][rPos]
-            generatedPoet= generatedPoet.concat(poet).concat(' ') 
-            return(generatedPoet)  
-          }
+        
 
-        }
-
-        //  poet()
-
-         Cookies.set(target,generatedPoet);
+         Cookies.set(target,1);
         const index = cookies.indexOf(target);
           if (index > -1) {
               cookies.splice(index, 1);
@@ -279,23 +298,29 @@ var dictioPlaces = {
 
   arr=[]
   arr2 = []
-  if (cookiesDone.length>0){
-    arr2=['M',dictioPlaces[cookiesDone][0]]
+  if (cookiesDone.lenght > 0){
+    // cookiesDone.forEach(cookieDon => {
+      arr2.push('M',dictioPlaces[cookiesDone[0]][0])
+      // console.log(])
+    // });
+    // for (let ppp = 0; ppp < cookiesDone.length; ppp++){
+    //   arr2.push('T')
+    //   arr2.push(dictioPlaces[cookiesDone[ppp]][0])
+    // }
   }
+  console.log(arr2)
   var polypointsDone = []
 
   cookiesDone.forEach(element => {
     let lon = dictioPlaces[element][0][0];
     let lat = dictioPlaces[element][0][1];
-    polypoints.push([lon,lat])    
+    polypointsDone.push([lon,lat])    
     });
 
     let lenPointsDone = Object.keys(polypointsDone).length
 
 
-for (let ppp = 0; ppp < cookiesDone.length; ppp++){
-  arr2.push(dictioPlaces[cookiesDone][ppp])
-}
+
 
   function geoFindMe() {
     function success(position) {
@@ -305,6 +330,7 @@ for (let ppp = 0; ppp < cookiesDone.length; ppp++){
       arr.push('M')
       arr.push([latitude,longitude])
       bezier()
+      bezierDone()
     }
   
     if(!navigator.geolocation) {
@@ -343,23 +369,25 @@ function bezier(){
       arr.push(element)
     });
   }
+
+  console.log(arr)
   
   function bezierDone(){
-    if (arr.includes('M')){
-      arr.push('T')
-      arr.push(polypointsDone[0])
+    if (arr2.includes('M')){
+      arr2.push('T')
+      arr2.push(polypointsDone[0])
     } else {
-      arr.push('M')
-      arr.push(polypointsDone[0])
+      arr2.push('M')
+      arr2.push(polypointsDone[0])
     }
     polypointsDone.forEach(element => {
-      arr.push('T')
-      arr.push(element)
+      arr2.push('T')
+      arr2.push(element)
     });
   }
 
 bezier()
-// bezierDone()
+bezierDone()
 // console.log(arr)
 
   // console.log(lenPointsDone)
@@ -375,11 +403,12 @@ if (lenPoints > 0){
 }}
 
 if (lenPointsDone > 0){
-  let bez = L.curve(arr ,{color: colori[r2] }).addTo(map);
+  console.log(arr2)
+  let bez = L.curve(arr2 ,{color: colori[r2] }).addTo(map);
   if (bez){
     let latCentro = JSON.stringify( bez.getCenter()["lat"])
     let lngCentro = JSON.stringify( bez.getCenter()["lng"])
-    let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
+    // let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     // map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
 } else {
     // map.panTo(L.latLng(start))
