@@ -1,273 +1,308 @@
+
 /* ———————————————————— FONTS  —————————————————————————————————————————————— */
 
 @font-face {
-    font-family: Apoc;
-    src: url(fonts/ATApocLight.woff);
-    font-weight: normal;
-    font-style: normal;
-    }
-  @font-face {
-    font-family: ApocBold;
-    src: url(fonts/ATApocDark.woff.woff);
-    font-weight: normal;
-    font-style: normal;
-    }
-  @font-face {
-    font-family: Brut;
-    src: url(fonts/Brut_Grotesque-Text.woff);
-    font-weight: normal;
-    font-style: normal;
-    }
-  @font-face {
-    font-family: Union;
-    src: url(fonts/Union-Regular.woff);
-    font-weight: normal;
-    font-style: normal;
-    }
-  @font-face {
-    font-family: UnionBold;
-    src: url(fonts/Union-Bold.woff);
-    font-weight: normal;
-    font-style: normal;
-    }
+  font-family: Brut;
+  src: url(fonts/Px\ Grotesk\ Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+  }
+@font-face {
+  font-family: Union;
+  src: url(fonts/Union-Regular.woff);
+  font-weight: normal;
+  font-style: normal;
+  }
+@font-face {
+  font-family: UnionBold;
+  src: url(fonts/Union-Bold.woff);
+  font-weight: normal;
+  font-style: normal;
+  }
 /* ———————————————————— BASIC ELEMENTS CSS STYLING  —————————————————————————————————————————————— */
 
-  html {
-    font-family: 'Brut';
-    width: 100%;
-    height: 100%;
-    }
-  body {
-    background: rgba(255,214,0);
-    }
-  .container {
-    font-family: 'Brut';
-    max-width: 100%;
-    
-    }
+html {
+  font-family: 'Brut';
+  width: 100%;
+  height: 100%;
+  }
+body {
+  background: rgba(255,214,0);
+  }
+.container {
+  font-family: 'Brut';
+  max-width: 100%;
+  position: absolute;
+  z-index: 2;
+  }
 
 /* ————  UNUSED TITLE TO ACTIVATE WITH H5 —————————— */
 
-  .h1, h1 {
-    font-family: 'UnionBold';
-    letter-spacing: -0.5px;  
-    font-size: 17px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    text-align: left;
-    color: black;
-    font-weight: normal;
-    font-style: normal;
-    }
+.h1, h1 {
+  font-family: 'UnionBold';
+  letter-spacing: -0.5px;  
+  font-size: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align: left;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  }
 
 /* ———— LOCATION —————————— */
 
 
 .h2, h2 {
-    font-family: 'Brut';
-    width: 100%;
-    padding: 1px;
-    margin: 0px;
-    color: black;
-    text-align: center;
-    white-space: nowrap;
-    font-size: 0.6em;
-    }
+  font-family: 'Brut';
+  width: 100%;
+  padding: 1px;
+  margin: 0px;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.6em;
+  }
 
 /* ———— DATE / HOURS —————————— */
 
-  .h3, h3 {
-    font-family: 'Brut';
-    width: 100%;
-    padding: 1px;
-    margin: 0px;
-    color: black;
-    text-align: center;
-    white-space: nowrap;
-    font-size: 0.6em;
-    }
+.h3, h3 {
+  font-family: 'Brut';
+  width: 100%;
+  padding: 1px;
+  margin: 0px;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.6em;
+  }
 
 
 /* ———— UNUSED TITLE TO ACTIVATE WITH H1 —————————— */
 
 
-  .h4, h4 {
-    font-family: 'UnionBold';
-    letter-spacing: -0.5px;  
-    font-size: 17px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    text-align: right;
-    color: black;
-    font-weight: normal;
-    font-style: normal;
-    }
+.h4, h4 {
+  font-family: 'UnionBold';
+  letter-spacing: -0.5px;  
+  font-size: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align: right;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  }
 
 /* ———— CURRENT TITLE —————————— */
 
 
-  .h5, h5 {
-    font-family: 'Apoc';
-    letter-spacing: 0px;  
-    font-size: 40px;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    text-align: center;
-    color: black;
-    font-weight: normal;
-    font-style: normal;
-    }
+.h5, h5 {
+  font-family: 'Union';
+  letter-spacing: 0px;  
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  }
 
 /* ———— UNUSED ALTERNATIVE TITLE  —————————— */
 
-  .flex-container {
-        display: flex;
-    }
-    .flex-container > h1 {
-    text-align: left;
-        margin: 10px;
-        padding: 10px;
-        width: 50%;
-    }
-    .flex-container > h4 {
-    text-align: right;
-        margin: 10px;
-        padding: 10px;
-        width: 50%;
-    }
+.flex-container {
+  display: flex;
+  }
+.flex-container > h1 {
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  }
+.flex-container > h4 {
+  text-align: right;
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  }
 
 /* ———————————————————— GRID  —————————————————————————————————————————————— */
 
-  .grid {
-    font-family: 'Brut';
-    height: 100px;
-    width: 100%;
-    }
+.grid {
+  font-family: 'Brut';
+  height: 100px;
+  width: 100%;
+  }
 
 /* ———————————————————— GRID ITEM FOR ALL LOCATIONS/EVENTS BOX —————————————————————————————————————————————— */
 
-    .grid-item {  
-      font-family: 'Apoc';
-      border-radius: 20px 20px 20px 20px;
-      width: 33%;
-      background-color: rgb(253, 214, 5);
-      border-width: thick;
-      box-shadow: rgba(230, 178, 0, 0.58) 0px 0px 11px 0px;
-      padding: 5px;
-      margin: 1px;
-      color: black;
-      stroke: black;
-      text-align: center;
-      white-space: nowrap;
-      font-size: 1em;
-      transition-timing-function: ease-in-out;
-    }
-    .grid-item:hover {
-      border-radius: 10px 10px 10px 10px;
-      box-shadow: rgba(230, 178, 0, 0.75) 0px 0px 11px 0px;
-      color: black;
-      padding-right: 500px;
-      background-color: rgb(253, 224, 5);
-      transition-duration: 0.5s;
-      transition-timing-function: ease-out;        
-      transition-delay: 0s;
-    }
+  .grid-item {  
+    font-family: 'Apoc';
+    border-radius: 20px 20px 20px 20px;
+    width: 33%;
+    background-color: rgb(253, 214, 5);
+    border-width: thick;
+    box-shadow: rgba(230, 178, 0, 0.58) 0px 0px 11px 0px;
+    padding: 5px;
+    margin: 1px;
+    color: black;
+    stroke: black;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1em;
+    transition-timing-function: ease-in-out;
+  }
+  .grid-item:hover {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(230, 178, 0, 0.75) 0px 0px 11px 0px;
+    color: black;
+    padding-right: 500px;
+    background-color: rgb(253, 224, 5);
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;        
+    transition-delay: 0s;
+  }
+
+  .leafletPopup, .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  width: 200px;
+  background-color: rgb(253, 224, 5);
+  color: black;
+}
+
 
 /* ———————————————————— BTN FOR ALL CATEOGORIES —————————————————————————————————————————————— */
 
-   .btn-success {
-      font-family: 'Apoc';
-      border-color: black;
-      border-radius: 10px 10px 10px 10px;
-      max-width: 50%;
-      background-color: black;
-      stroke-width: 0px;
-      padding: 5px;
-      margin: 1px;
-      color: white;
-      text-align: center; 
-    }
-  .btn-success:hover {
-      font-family: 'Apoc';
-      border-color: black;
-      border-radius: 15px 15px  15px 15px;
-      stroke-width: 0px;
-      color: black;
-      background-color: rgb(255,224,0);
-      transition-duration: 0.5s;
-      transition-timing-function: linear;
-      transition-delay: 0s;
-    }
-  .btn-success:not([disabled]):not(.disabled).active, .btn-success:not([disabled]):not(.disabled):active, .show > .btn-success.dropdown-toggle {   
-      font-family: 'Apoc';
-      color: black;
-      border-color: rgb(255,224,0);
-          border-radius: 15px 15px  15px 15px;
-      stroke-width: 1px;
-      background-color: rgb(255,224,0);
-      transition-duration: 0.5s;
-      transition-timing-function: linear;
-      transition-delay: 0s;
-      box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
-      -webkit-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
-      -moz-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);      
-    }
+ .btn-success {
+    font-family: 'Apoc';
+    border-color: black;
+    border-radius: 10px 10px 10px 10px;
+    max-width: 50%;
+    background-color: black;
+    stroke-width: 0px;
+    padding: 5px;
+    margin: 1px;
+    color: white;
+    text-align: center; 
+  }
+.btn-success:hover {
+    font-family: 'Apoc';
+    border-color: black;
+    border-radius: 15px 15px  15px 15px;
+    stroke-width: 0px;
+    color: black;
+    background-color: rgb(255,224,0);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+  }
+.btn-success:not([disabled]):not(.disabled).active, .btn-success:not([disabled]):not(.disabled):active, .show > .btn-success.dropdown-toggle {   
+    font-family: 'Apoc';
+    color: black;
+    border-color: rgb(255,224,0);
+    border-radius: 15px 15px  15px 15px;
+    stroke-width: 1px;
+    background-color: rgb(255,224,0);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
+    -webkit-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);
+    -moz-box-shadow: 0px 0px 11px 3px rgba(230,178,0,0.58);      
+  }
 
-    #map{
-        /* display: none; */
-        /* position: fixed; */
-    }
+  .btn-marker{
+    min-width: 100px;
+    max-width: 100px;
+    /* width: 1000px */
+  }
+
+  #map{
+    width: 100vw;
+     height: 100vh;
+    will-change: transform;
+    /* display: none; */
+    position: fixed;
+    z-index: 10;
+  }
+
+  #map h1{
+      font-family: ApocBold;
+  }
+
+  #mapToggle{
+      position: fixed;
+      /* z-index: 100; */
+     /* right: 100px; */
+  }
+
+  #pathcreator{
+      position: relative;
+  }
+
+
+  #reader{
+      position: absolute;
+      display: none;
+      z-index: 10;
+      background-color: rgba(253, 214, 5,0.3);
+      width: 100%;
+
+  }
+
+  #qr-input-file{
+      width: 60%;
+    margin: auto;
+  }
 
 /* ———————————————————— MEDIA QUERIES MAX 630 PX —————————————————————————————————————————————— */
 
 
 @media only screen and (max-width : 630px){
 
-    .h1, h1 {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-   .h2, h2 {
-      width: 100%;
-      padding: 1px;
-      margin: 0px;
-      color: black;
-      text-align: center;
-      white-space: nowrap;
-      font-size: 0.6em;
-    }
-    .h3, h3 {
-      width: 100%;
-      padding: 1px;
-      margin: 0px;
-      text-align: center;
-      color: rgb(253 214 2);
-      white-space: nowrap;
-      font-size: 0.6em;
-    }
-    .grid {
-      height: 100px;
-      width: 100%;
-    }
-
-    .grid-item {
-      border-radius: 10px 10px 0px 0px;
-      width: 49%;
-      padding: 1px;
-      margin: 1px;
-      text-align: center;
-      white-space: nowrap;
-      font-size: 1em;
-    }
-
-    .grid-item:hover {
-      padding-right: 100px;
-
-    }
+  .h1, h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+ .h2, h2 {
+    width: 100%;
+    padding: 1px;
+    margin: 0px;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.6em;
+  }
+  .h3, h3 {
+    width: 100%;
+    padding: 1px;
+    margin: 0px;
+    text-align: center;
+    color: rgb(253 214 2);
+    white-space: nowrap;
+    font-size: 0.6em;
+  }
+  .grid {
+    height: 100px;
+    width: 100%;
   }
 
+  .grid-item {
+    border-radius: 10px 10px 0px 0px;
+    width: 49%;
+    padding: 1px;
+    margin: 1px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1em;
+  }
+
+  .grid-item:hover {
+    padding-right: 100px;
+
+  }
+}
 
 /* ———————————————————— MEDIA QUERIES - MAX 400 PX—————————————————————————————————————————————— */
 
@@ -275,50 +310,54 @@
 @media only screen and (max-width : 400px){
 
 
-   .h1, h1 {
-    padding-top: 10px;
-    padding-bottom: 10px;
+ .h1, h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
+  }
+
+ .h2, h2 {
+    width: 100%;
+    padding: 1px;
+    margin: 0px;
     color: black;
-    }
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.6em;
+  }
 
-   .h2, h2 {
-      width: 100%;
-      padding: 1px;
-      margin: 0px;
-      color: black;
-      text-align: center;
-      white-space: nowrap;
-      font-size: 0.6em;
-    }
+  .h3, h3 {
+    width: 100%;
+    padding: 1px;
+    margin: 0px;
+    color: rgb(253 214 2);
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.6em;
+  }
 
-    .h3, h3 {
-      width: 100%;
-      padding: 1px;
-      margin: 0px;
-      color: rgb(253 214 2);
-      text-align: center;
-      white-space: nowrap;
-      font-size: 0.6em;
-    }
+  .grid {
+    height: 100px;
+    width: 100%;
+    padding-top: 10px;
+  }
 
-    .grid {
-      height: 100px;
-      width: 100%;
-      padding-top: 10px;
-    }
+  .grid-item {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    padding: 1px;
+    margin: 1px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1em;
+  }
 
-    .grid-item {
-      border-radius: 10px 10px 0px 0px;
-      width: 100%;
-      padding: 1px;
-      margin: 1px;
-      text-align: center;
-      white-space: nowrap;
-      font-size: 1em;
-    }
+  .grid-item:hover {
+    padding-right: 400px;
+  }
 
-    .grid-item:hover {
-      padding-right: 400px;
-    }
+  .selectedPlace{
+    background-color: red;
+  }
 
 }
