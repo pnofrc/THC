@@ -47,7 +47,6 @@ var dictioPlaces = {
   if (r2 == r){
     r2
   }
-  console.log(r2)
   let r3 = Math.floor(Math.random() * (colori.length ))
 
 
@@ -266,6 +265,9 @@ var dictioPlaces = {
     });
   });
   
+
+
+
   // CREATE MARKER FOR EACH COOKIE (DONE)
   cookiesDone.forEach(element => {
     var markerOptions = {
@@ -273,7 +275,6 @@ var dictioPlaces = {
         clickable: true,
         icon: doneIcon
         }
-        console.log(element)
     
         let lon = dictioPlaces[element][0][0];
         let lat = dictioPlaces[element][0][1];
@@ -283,15 +284,12 @@ var dictioPlaces = {
         let c = Cookies.get(element)
         // Object.keys(element)
 
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1><br><p>${c}</p>`).addTo(map);
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c}</h1><br><p>${dictioPlaces[element][2]}</p>`).addTo(map);
     
         map.addLayer(marker)
   }); 
-  
 
 
- 
-  
   
   let lenPoints = Object.keys(polypoints).length
   
@@ -476,4 +474,40 @@ if (localStorage['tagClass']){
 }
   
       
-  
+
+if(cookiesDone.length> 0){
+  $("#showPic").fadeIn()
+}
+
+for (item in cookiesDone){
+  let poetTot = Cookies.get(cookiesDone[item])
+  $("#showPic").append(`<p>${poetTot}</p>`);
+}
+
+function end(){
+  for(item in Cookies.get()){
+    Cookies.remove(item)
+  }
+   location.reload()
+}
+
+if(cookiesDone.length> 0 && cookies.length==0){
+  for (item in cookiesDone){
+    let poetTot = Cookies.get(cookiesDone[item])
+    $("#end").append(`<p>${poetTot}</p>`);
+  }
+  $("#end").append(`<button onclick="end()">End!</button>`);
+  $("#end").css('display','flex')
+  $("#end").fadeIn()
+}
+
+// html2canvas(document.querySelector("#end")).then(canvas => {
+//   document.body.appendChild(canvas)
+
+// });
+// var canvas = document.getElementsByTagName("canvas");
+// var img    = canvas.toDataURL("image/png");
+// document.write('<img src="'+img+'"/>');
+
+// var img    = canvas.toDataURL("image/png");
+// document.write('<img src="'+img+'"/>');
