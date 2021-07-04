@@ -1,3 +1,14 @@
+
+  let Nest = [{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]
+
+  let constr = ['NNP','NN']
+
+// var generatedPoet = ''
+
+
+
+
+
 //DICTIONARY
 
 var dictioPlaces = {
@@ -26,7 +37,6 @@ var dictioPlaces = {
     'SculptureGallery': [[52.07672464696959, 4.3124565638957835], '<br><p>Dolor sit Amet</p>', '1646']
     }
 
-  let generatedPoet = 'wela  bella gente'
 
   // to find keys of dictionary
   // console.log(Object.keys(dictioPlaces))
@@ -86,7 +96,7 @@ var dictioPlaces = {
     console.log(value)
     if ( value == 0){
       cookies.push(biscottino[vc])
-      console.log('ancora da fare')
+      // console.log('ancora da fare')
     } else{
       let key = Object.keys(coo)[vc]
       cookiesDone.push(key)
@@ -160,23 +170,7 @@ var dictioPlaces = {
         map.addLayer(marker)
       });
 
-  // CREATE MARKER FOR EACH COOKIE (DONE)
-  cookiesDone.forEach(element => {
-      var markerOptions = {
-          title: element,
-          clickable: true,
-          icon: doneIcon
-          }
-          console.log(element)
-      
-          let lon = dictioPlaces[element][0][0];
-          let lat = dictioPlaces[element][0][1];
   
-          let markerLocation = new L.LatLng(lon,lat);
-          let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1><br><p>${generatedPoet}</p>`).addTo(map);
-      
-          map.addLayer(marker)
-    }); 
 
   var polypoints = []
   
@@ -202,16 +196,36 @@ var dictioPlaces = {
       return;
     }
   
+    var target
     // Use the first item in the list
     const imageFile = e.target.files[0];
     html5QrCode.scanFile(imageFile, /* showImage= */false)
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
-      let target= qrCodeMessage.replace('http://github.io/pnofrc/THC/','').replace('/index.html/','')
+      target= qrCodeMessage.replace('https://pnofrc.github.io/THC/','').replace('/index.html/','')
       console.log(cookies.includes(target))
-  
+      console.log(target)
+      let generatedPoet = ' '
+
       if (cookies.includes(target)){
-        Cookies.set(target,generatedPoet);
+        
+        function poet(target){Cookies.get();
+    //let biscottino = Object.keys(coo)
+    constr.forEach(pos => {
+      postag(target,pos)
+    });
+          function postag(target,pos){
+            let rPos = Math.floor(Math.random() * (target[0][pos].length))
+            let poet = target[0][pos][rPos]
+            generatedPoet= generatedPoet.concat(poet).concat(' ') 
+            return(generatedPoet)  
+          }
+
+        }
+
+        //  poet()
+
+         Cookies.set(target,generatedPoet);
         const index = cookies.indexOf(target);
           if (index > -1) {
               cookies.splice(index, 1);
@@ -233,32 +247,41 @@ var dictioPlaces = {
     });
   });
   
+  // CREATE MARKER FOR EACH COOKIE (DONE)
+  cookiesDone.forEach(element => {
+    var markerOptions = {
+        title: element,
+        clickable: true,
+        icon: doneIcon
+        }
+        console.log(element)
+    
+        let lon = dictioPlaces[element][0][0];
+        let lat = dictioPlaces[element][0][1];
+
+        let markerLocation = new L.LatLng(lon,lat);
+
+        let c = Cookies.get(element)
+        // Object.keys(element)
+
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1><br><p>${c}</p>`).addTo(map);
+    
+        map.addLayer(marker)
+  }); 
   
-  // Creating multi polyline options
-  // var multiPolyLineOptions = {color:'red'};
-  
-  // Creating multi polylines
-  // console.log([polypoints])
-  // var multipolyline = L.multiPolyline([polypoints] , multiPolyLineOptions);
-  // multipolyline.addTo(map);
-  // var polygon = L.polygon(
-  //   polypoints
-  // );
-  
-  
-  // let bezier = []
-  // while (x > 0){
-  //     bezier.push((polypoints[x]))
-  //     x--
-  // }
+
+
+ 
   
   
   let lenPoints = Object.keys(polypoints).length
   
 
   arr=[]
-  arr2=['M',dictioPlaces[cookiesDone][0],]
-
+  arr2 = []
+  if (cookiesDone.length>0){
+    arr2=['M',dictioPlaces[cookiesDone][0]]
+  }
   var polypointsDone = []
 
   cookiesDone.forEach(element => {
@@ -273,13 +296,12 @@ var dictioPlaces = {
 for (let ppp = 0; ppp < cookiesDone.length; ppp++){
   arr2.push(dictioPlaces[cookiesDone][ppp])
 }
-  console.log(arr2)
 
   function geoFindMe() {
     function success(position) {
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
-      console.log(latitude ,longitude)
+      // console.log(latitude ,longitude)
       arr.push('M')
       arr.push([latitude,longitude])
       bezier()
@@ -288,7 +310,7 @@ for (let ppp = 0; ppp < cookiesDone.length; ppp++){
     if(!navigator.geolocation) {
       console.log('Geolocation is not supported by your browser')
     } else {
-      console.log('Locating…')
+      // console.log('Locating…')
       navigator.geolocation.getCurrentPosition(success);
     }
   }
@@ -338,10 +360,9 @@ function bezier(){
 
 bezier()
 // bezierDone()
-console.log(arr)
-console.log(arr2)
+// console.log(arr)
 
-  console.log(lenPointsDone)
+  // console.log(lenPointsDone)
 if (lenPoints > 0){
   let bez = L.curve(arr ,{color: colori[r] }).addTo(map);
   if (bez){
@@ -415,7 +436,7 @@ function showMap(){
   intro =  localStorage.getItem("tagClass"); 
 
 if (localStorage['tagClass']){
-    console.log(intro)
+    // console.log(intro)
     $grid.isotope({
                 filter:  intro,
             });
