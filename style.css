@@ -225,6 +225,9 @@ body {
     /* display: none; */
     position: fixed;
     z-index: 10;
+    border: solid 8px black;
+    box-shadow: 0 0 0 8px black;
+    border-radius: 20px;
   }
 
   #map h1{
