@@ -274,6 +274,7 @@ var dictioPlaces = {
       // console.log(cookies.includes(target))
 
       target = qrCodeMessage
+      alert(target)
       console.log(target)
 
       if (cookies.includes(target)){
