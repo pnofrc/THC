@@ -269,9 +269,7 @@ var dictioPlaces = {
     html5QrCode.scanFile(imageFile, /* showImage= */false)
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
-
-
-      target= qrCodeMessage.replace('https://weirdfloor.thehaguecontemporary.nl/places/','').replace('/index.html/','')
+      target= qrCodeMessage.replace('http://weirdfloor.thehaguecontemporary.nl/places/','').replace('/index.html/','')
       alert(target)
 
       // target = qrCodeMessage
