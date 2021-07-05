@@ -1,3 +1,17 @@
+let cookies = []
+let cookiesDone = []
+let cookiesChanged = []
+let coo = Cookies.get();
+let biscottino = Object.keys(coo)
+var polypoints = []
+var polypointsDone = []
+
+var bez
+
+// MAP 
+let start = [52.07400906993372, 4.323222423616773]
+var map = L.map('map', { scrollWheelZoom: true }).setView(start, 13);
+
 let madonna = Cookies.get()
 
 if (jQuery.isEmptyObject(madonna)){
@@ -6,6 +20,46 @@ if (jQuery.isEmptyObject(madonna)){
     location.reload()
 })
 }
+arr=[]
+arr2 = []
+
+  // GPS ON
+  var gps = (L.control.locate({
+    locateOptions: {
+            enableHighAccuracy: true,
+            showPopup: true,strings: {
+              title: `<div onclick="${geoFindMe()}"></div>`
+              
+          },
+            maxZoom: 14,
+            cacheLocation: true,
+          getLocationBounds: true
+}
+})).addTo(map);
+gps.start();
+
+
+
+
+// function geoFindMe() {
+//   function success(position) {
+//     const latitude  = position.coords.latitude;
+//     const longitude = position.coords.longitude;
+//     let arr = []
+//     arr.push('M')
+//     arr.push([latitude,longitude])
+
+//   }
+//   if(!navigator.geolocation) {
+//     console.log('Geolocation is not supported by your browser')
+//   } else {
+//     navigator.geolocation.getCurrentPosition(success);
+        
+//     bezier()
+//   }
+// }
+
+
 
   let constr = ['NNP','NN']
 
@@ -27,7 +81,8 @@ var dictioPlaces = {
     'UithetGareel': [[52.07480113905305, 4.308013105469062], '<br><p>Dolor sit Amet</p>', 'Uit het Gareel'],
     'PNF':[[52.072353820836085, 4.311721236205367],'<br><p>Dolor sit Amet</p>', 'Page Not Found',[{'NNP': ['Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about'], 'NNS': ['stalls', 'artworks', 'prints', 'artworks', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists'], 'VBG': ['selling', 'Stichting'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'showcase', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more'], 'MD': ['can'], 'VBN': ['announced']}]  ],
     'PartProject': [[52.08177307188824, 4.301725011614704], '<br><p>Dolor sit Amet</p>', 'Parts Project'],
-    'kabk': [[52.08340664549677, 4.326662958803667], '<br><p>Dolor sit Amet</p>', 'PIP Den Haag'],
+    'kabk': [[52.08173887878792, 4.319883067186774], '<br><p>Dolor sit Amet</p>', 'Royal Academy of Art, Den Haag'],
+    'Pip':  [[52.07370870765334, 4.333615829088313], '<br><p>Dolor sit Amet</p>', 'PIP Den Haag'],
     'Stroom': [[52.08357264666274, 4.303884855889337], '<br><p>Dolor sit Amet</p>', 'The Royal Academy of Art The Hague'],
     'StudioSaber':[[51.14185891020335, 5.591358149666528], '<br><p>Dolor sit Amet</p>', 'Stroom Den Haag'],
     'grey': [[52.07463690009965, 4.312364801820798], '<br><p>Dolor sit Amet</p>', 'Studio Saber'],
@@ -45,16 +100,24 @@ var dictioPlaces = {
   // random color picker
   var colori = ['yellow','red','black','purple'];
   let r = Math.floor(Math.random() * (colori.length ))
-  let r2 = Math.floor(Math.random() * (colori.length))
-  if (r2 == r){
-    r2
+
+  var r2
+
+  function rr(){
+      r2 = Math.floor(Math.random() * (colori.length))
+    }
+
+  rr()
+
+  // to not have two same colors
+  while (r2 === r){
+    rr()
+    if (r2 != r){
+      break
+    }
   }
-  let r3 = Math.floor(Math.random() * (colori.length ))
 
 
-  // MAP 
-  let start = [52.0793046656365, 4.313155972254871]
-  var map = L.map('map', { scrollWheelZoom: true }).setView(start, 13);
   
   // TILES
   L.tileLayer("https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=WqL6ymt9YHsM4S1RmjmG", {
@@ -72,6 +135,7 @@ var dictioPlaces = {
   
   // BACK HOME
   L.easyButton("fa-arrow-left fa-2x",function(btn,map){
+    $("#showPic").slideUp()
     $('#map').slideUp()
     $( "#reader" ).fadeOut()
   }, 'menu/mappa', 'menu/mappa').addTo(map);
@@ -88,55 +152,32 @@ var dictioPlaces = {
   });
 
 
-  // TO CHECK STORED STUFF 
-  let cookies = []
-  let cookiesDone = []
-  let cookiesChanged = []
-  let coo = Cookies.get();
-  let biscottino = Object.keys(coo)
 
 
+// PUSH THE PLACES IN TODO AND DONE
   for (let vc = 0; vc < biscottino.length; vc++){
     let value = Object.values(coo)[vc]
     console.log(value)
     if ( value == 0){
       cookies.push(biscottino[vc])
-      // console.log('ancora da fare')
     } else{
       let key = Object.keys(coo)[vc]
       cookiesDone.push(key)
       console.log(key)
-      console.log('andato')
-
     }
   }
 
   // console.log(cookiesDone)
 
-  //TO CHECK SELECTED PLACES
+  //TO CHECK TODO PLACES
   cookies.forEach(place => {
     $(`.${place}`).css('background-color','red')
     // cookies.push(place)
     cookiesChanged.push(place)
   });
 
-  // function poet(target){
 
-
-      // function postag(target,pos){
-      //   let rPos = Math.floor(Math.random() * (target[0][pos].length))
-      //   let poet = target[0][pos][rPos]
-      //   generatedPoet= generatedPoet.concat(poet).concat(' ') 
-      //   console.log(generatedPoet)  
-      // }
-
-    // }
-
-    // poet()
-
-
-  
-
+  // TO COLOR DIFFERENTLY DONE PLACES
   cookiesDone.forEach(cookieDon => {
     $(`.${cookieDon}`).css('background-color','white')
     $(`.${cookieDon}`).css('color','black')
@@ -156,7 +197,7 @@ var dictioPlaces = {
     }
   })
 
-  // TO ADD 
+  // TO ADD CHOICE
   function add(place){
     $(`.${place}`).css('background-color','red')
     Cookies.set(place, 0,   { expires: 30 })
@@ -166,7 +207,7 @@ var dictioPlaces = {
     console.log(biscottino)
   }
 
-  // TO REMOVE
+  // TO REMOVE CHOICE
   function less(place){
     $(`.${place}`).css('background-color','rgba(255,214,0)');
     Cookies.remove(place);
@@ -175,7 +216,6 @@ var dictioPlaces = {
     let biscottino = Object.keys(coo)
     console.log(cookiesChanged)
     console.log(biscottino)
-    //iconsMap()
   }
     
   // LOGIC PLACES      
@@ -188,29 +228,21 @@ var dictioPlaces = {
   }
   
    
-
-
-
-  // CREATE MARKER FOR EACH COOKIE (OPEN)   
+  // CREATE MARKER FOR EACH TODO 
   cookies.forEach(element => {
     var markerOptions = {
         title: element,
         clickable: true,
         icon: prevIcon
         }
-
         let lon = dictioPlaces[element][0][0];
         let lat = dictioPlaces[element][0][1];
-
         let markerLocation = new L.LatLng(lon,lat);
         let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1><br>`+dictioPlaces[element][1]+`<br><button class="btn-success btn-marker"  onclick=Cookies.remove("${element}");location.reload()>Remove</button>`).addTo(map);
-
         map.addLayer(marker)
       });
 
-  
 
-  var polypoints = []
   
   function poly(){
       cookies.forEach(element => {
@@ -246,17 +278,16 @@ var dictioPlaces = {
       let generatedPoet = ' '
 
       if (cookies.includes(target)){
-        
-        
-
          Cookies.set(target,1);
         const index = cookies.indexOf(target);
           if (index > -1) {
               cookies.splice(index, 1);
   }
-          //cookiesDone.push(target);
-          //localStorage.setItem(target,"donene")
+
+
         alert(':)')
+
+
         location.reload()
       } 
           else{
@@ -274,7 +305,7 @@ var dictioPlaces = {
 
 
 
-  // CREATE MARKER FOR EACH COOKIE (DONE)
+  // CREATE MARKER FOR EACH DONE 
   cookiesDone.forEach(element => {
     var markerOptions = {
         title: element,
@@ -288,8 +319,6 @@ var dictioPlaces = {
         let markerLocation = new L.LatLng(lon,lat);
 
         let c = Cookies.get(element)
-        // Object.keys(element)
-
         let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c}</h1><br><p>${dictioPlaces[element][2]}</p>`).addTo(map);
     
         map.addLayer(marker)
@@ -297,69 +326,25 @@ var dictioPlaces = {
 
 
   
-  let lenPoints = Object.keys(polypoints).length
-  
 
-  arr=[]
-  arr2 = []
+
+
   if (cookiesDone.lenght > 0){
-    // cookiesDone.forEach(cookieDon => {
       arr2.push('M',dictioPlaces[cookiesDone[0]][0])
-      // console.log(])
-    // });
-    // for (let ppp = 0; ppp < cookiesDone.length; ppp++){
-    //   arr2.push('T')
-    //   arr2.push(dictioPlaces[cookiesDone[ppp]][0])
-    // }
   }
-  console.log(arr2)
-  var polypointsDone = []
+
 
   cookiesDone.forEach(element => {
     let lon = dictioPlaces[element][0][0];
     let lat = dictioPlaces[element][0][1];
     polypointsDone.push([lon,lat])    
-    });
-
-    let lenPointsDone = Object.keys(polypointsDone).length
+  });
 
 
+  let lenPointsDone = Object.keys(polypointsDone).length
 
 
-  function geoFindMe() {
-    function success(position) {
-      const latitude  = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      // console.log(latitude ,longitude)
-      arr.push('M')
-      arr.push([latitude,longitude])
-      // bezier()
-      // bezierDone()
-    }
-  
-    if(!navigator.geolocation) {
-      console.log('Geolocation is not supported by your browser')
-    } else {
-      // console.log('Locating…')
-      navigator.geolocation.getCurrentPosition(success);
-    }
-  }
 
-  // GPS ON
-  var gps = (L.control.locate({
-      locateOptions: {
-              enableHighAccuracy: true,
-              showPopup: true,strings: {
-                title: `<div onclick="${geoFindMe()}"></div>`
-                
-            },
-              maxZoom: 14,
-              cacheLocation: true,
-            getLocationBounds: true
-  }
-})).addTo(map);
-
-gps.start();
 
 function bezier(){
     if (arr.includes('M')){
@@ -374,8 +359,6 @@ function bezier(){
       arr.push(element)
     });
   }
-
-  console.log(arr)
   
   function bezierDone(){
     if (arr2.includes('M')){
@@ -391,33 +374,57 @@ function bezier(){
     });
   }
 
+// map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
+
 bezier()
 bezierDone()
-// console.log(arr)
 
-  // console.log(lenPointsDone)
+
+
+function geoFindMe() {
+  var latitude  
+  var longitude 
+
+  function success(position) {
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
+    console.log([latitude,longitude])
+    arr = []
+    arr.push('M')
+    arr.push([latitude,longitude])
+    polypoints.forEach(element => {
+      arr.push('T')
+      arr.push(element)
+    });
+    console.log(arr)
+    bez.removeFrom(map)
+    L.curve(arr ,{color: colori[r] }).addTo(map);
+  }
+  if(!navigator.geolocation) {
+    console.log('Geolocation is not supported by your browser')
+  } else {
+    navigator.geolocation.getCurrentPosition(success);
+  }
+}
+
+
+
+let lenPoints = Object.keys(polypoints).length
+
+
 if (lenPoints > 0){
-  let bez = L.curve(arr ,{color: colori[r] }).addTo(map);
+  bez = L.curve(arr ,{color: colori[r] }).addTo(map);
   if (bez){
     let latCentro = JSON.stringify( bez.getCenter()["lat"])
     let lngCentro = JSON.stringify( bez.getCenter()["lng"])
     let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
     map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
-} else {
-    map.panTo(L.latLng(start))
 }}
 
 if (lenPointsDone > 0){
   console.log(arr2)
-  let bez = L.curve(arr2 ,{color: colori[r2] }).addTo(map);
-  if (bez){
-    let latCentro = JSON.stringify( bez.getCenter()["lat"])
-    let lngCentro = JSON.stringify( bez.getCenter()["lng"])
-    // let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
-    // map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
-} else {
-    // map.panTo(L.latLng(start))
-}}
+  L.curve(arr2 ,{color: colori[r2] }).addTo(map);
+}
   
 
 function showMap(){
@@ -434,7 +441,9 @@ function showMap(){
           $('#map').slideDown();
         }
       }
+      $("#showPic").slideDown()
     }
+
     var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
       layoutMode: 'fitRows',
@@ -443,6 +452,7 @@ function showMap(){
           return $(element).text();
         }
       }
+
     });
   
   
@@ -479,8 +489,7 @@ if (localStorage['tagClass']){
                 filter: ".All"
             });
 }
-  
-      
+    
 
 if(cookiesDone.length> 0){
   $("#showPic").fadeIn()
@@ -508,6 +517,16 @@ if(cookiesDone.length> 0 && cookies.length==0){
   $("#end").fadeIn()
 }
 
+// function showPoet(){
+// if ($("#map").css('display','none')) {
+//   $('#showPic').fadeOut();
+// } else {
+//   $('#showPic').fadeIn();
+// }
+// }
+
+
+
 // html2canvas(document.querySelector("#end")).then(canvas => {
 //   document.body.appendChild(canvas)
 
@@ -518,3 +537,12 @@ if(cookiesDone.length> 0 && cookies.length==0){
 
 // var img    = canvas.toDataURL("image/png");
 // document.write('<img src="'+img+'"/>');
+
+
+
+
+
+// let latCentro = JSON.stringify( bez.getCenter()["lat"])
+// let lngCentro = JSON.stringify( bez.getCenter()["lng"])
+// let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
+// map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
