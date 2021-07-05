@@ -248,7 +248,7 @@ var dictioPlaces = {
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
       target= qrCodeMessage.replace('http://weirdfloor.thehaguecontemporary.nl/places/','')
-      alert(target)
+      // alert(target)
 
       // target = qrCodeMessage
       // alert(target)
@@ -262,7 +262,7 @@ var dictioPlaces = {
   }
 
 
-        alert(':)')
+        alert('Cool! It seems you have been to ', dictioPlaces[target[2]] )
 
 
         location.reload()
