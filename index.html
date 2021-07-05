@@ -1,21 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Copy3</title>
-
+    <title>CAUTION WEIRD FLOOR</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- <link href="style.css" rel="stylesheet" type="text/css" media="all" /> -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
     <script src="isotope.pkgd.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!-- COOKIES API -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-     <!-- LEAFLET -->
-     <!-- <link rel="stylesheet" href="leaflet/leaflet.css" /> -->
-     <!-- <script src="leaflet/leaflet.js"></script> -->
 
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -35,7 +34,7 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
      <script src="html5-qrcode.js"></script>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
      <script src="html2canvas.min.js"></script>
 
@@ -52,8 +51,10 @@
     <!-- <canvas id="download_canvas" width="210" height="160"></canvas><br>  
     <button onclick="downloadCanvas()">Download Me!</button> -->
   </div>
-      
-    <div id="showPic"></div>
+  
+  
+  <!-------------  POET OVER MAP --------------------------------------------------------->
+  <div id="showPic"></div>
 
   <!-------------  IN MAP --------------------------------------------------------->
   <div id="mapToggle"><button onclick="showMap()">MAP</button></div>
@@ -97,7 +98,7 @@
         <button data-name=".Unknown" class="btn btn-success">Unknown</button>
         <button data-name=".Podcast" class="btn btn-success">Podcast</button>
         <button data-name=".Typography" class="btn btn-success">Typography</button>
-        <button data-name=".StreetArt" class="btn btn-success">StreetArt</button>
+        <button data-name=".TheHagueStreetArt" class="btn btn-success">TheHagueStreetArt</button>
         <button data-name=".Video" class="btn btn-success">Video</button>
         <button data-name=".OpenStudio" class="btn btn-success">OpenStudio</button>
         <button data-name=".Installation" class="btn btn-success">Installation</button>
@@ -118,40 +119,6 @@
   
     <div class="grid">
 
-   <!--TO BE MAYBE USED LATER, CURRENTLY REMOVED BECAUSE NOT APEARING ON THC PROGRAMM
-
-        <div class="grid-item Exhibition">Call for Graduates<h2>1646 & NEST</h2><h3>description</h3></div>
-        <div class="grid-item LargeScale">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item AutonomousPractice">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item LargeScale">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item Poster">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item Group">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item Art">Call for Graduates<h2>1646 & NEST</h2></div>
-        <div class="grid-item City">Call for Graduates<h2>1646 & NEST</h2></div> 
-
-        <div class="grid-item Publishing">Geocaching Game<h2>Experimental Publishing</h2></div>
-        <div class="grid-item Tour">Geocaching Game<h2>Experimental Publishing</h2></div>
-        <div class="grid-item City">Geocaching Game<h2>Experimental Publishing</h2></div> 
-
-        <div class="grid-item Exhibition">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
-        <div class="grid-item Painting">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
-        <div class="grid-item Sculpture">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
-        <div class="grid-item Poetry">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>
-        <div class="grid-item Group">What the moon can tell you (...)<h2>Dürst Britt & Mayhew</h2></div>  
-
-
-        <div class="grid-item Exhibition">OpZicht<h2>Stroom Den Haag</h2></div>    -->
-
-    <!----------------------- Beelden Aan Zee ---------------------------------------->
-
-
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item All">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Exhibition">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Sculpture">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Solo">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item Art">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-      <div onclick="checkCookies('BeeldenAanZee')" class="BeeldenAanZee grid-item LargeScale">Fa&ccedil;ade<h2>Beelden Aan Zee</h2><h3>Thursday, Friday, Saturday, Sunday [02:00 - 17:00]</h3></div>
-
 
     <!----------------------- Dürst Britt & Mayhew ---------------------------------------->
 
@@ -166,17 +133,17 @@
     <!----------------------- Fotomuseum Den Haag ---------------------------------------->
 
 
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item All">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Exhibition">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Photography">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Installation">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item All">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Exhibition">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Photography">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Installation">Paper & Light<h2>Fotomuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item All">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Workshop">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item OpenStudio">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
-      <div onclick="checkCookies('FotomuseumDenHaag')" class="FotomuseumDenHaag grid-item Art">Popel Coumou  - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item All">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Workshop">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item OpenStudio">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Collage">Popel Coumou - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
+      <div onclick="checkCookies('Fotomuseum')" class="Fotomuseum grid-item Art">Popel Coumou  - Workshop<h2>Fotomuseum Den Haag</h2><h3>Sunday [12:00]</h3></div>
 
 
     <!----------------------- Fotomuseum Den Haag ---------------------------------------->
@@ -239,43 +206,34 @@
     <!----------------------- Kunstmuseum Den Haag  --------------------------------------->
 
 
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item All">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Exhibition">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Retrospective">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item ConcerteArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Painting">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item AbstractArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Art">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item All">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Exhibition">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Retrospective">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item ConcerteArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Painting">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item AbstractArt">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Art">Bob Bonies<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
 
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item All">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Film">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Painting">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('KunstmuseumDenHaag')" class="KunstmuseumDenHaag grid-item Art">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item All">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Film">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Painting">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('Kunstmuseum')" class="Kunstmuseum grid-item Art">Bob Bonies Movie<h2>Kunstmuseum Den Haag</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
-
-  <!----------------------- Mike & Sid --------------------------------------->
-
-
-      <div onclick="checkCookies('MikeSid')" class="MikeSid grid-item All">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
-      <div onclick="checkCookies('MikeSid')" class="MikeSid grid-item Livestream">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
-      <div onclick="checkCookies('MikeSid')" class="MikeSid grid-item Performance">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
-      <div onclick="checkCookies('MikeSid')" class="MikeSid grid-item Collaborative">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
-      <div onclick="checkCookies('MikeSid')" class="MikeSid grid-item Art">Facing non objects, can we still run?<h2>Mike & Sid</h2><h3>Friday, Saturday, Sunday</h3></div>
 
 
   <!----------------------- NEST--------------------------------------->
 
 
-      <div onclick="checkCookies('Nest')" class="Nest grid-item All">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item Exhibition">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item Group">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item All">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item Exhibition">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item Group">She spins the thread (...)<h2>NEST</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
-      <div onclick="checkCookies('Nest')" class="Nest grid-item All">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item Poetry">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item Music">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item Litterature">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
-      <div onclick="checkCookies('Nest')" class="Nest grid-item DJ">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item All">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item Poetry">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item Music">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item Litterature">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
+      <div onclick="checkCookies('NEST')" class="NEST grid-item DJ">You’ll have to scream LOUDER<h2>NEST</h2><h3>Saturday [18:00 - 22:00]</h3></div>
 
 
   <!----------------------- Uit het Gareel--------------------------------------->
@@ -309,34 +267,27 @@
   <!----------------------- Parts Project --------------------------------------->
 
 
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item All">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item Exhibition">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item Group">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item All">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item Exhibition">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item Group">PP-19 Meet Me in the Middle<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
 
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item All">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item Performance">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('PartProject')" class="PartProject grid-item Conversation">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
-
-
-  <!----------------------- PIP Den Haag --------------------------------------->
-
-
-      <div onclick="checkCookies('Pip')" class="Pip grid-item All">Mystery event<h2>PIP Den Haag</h2><h3>???</h3></div>
-      <div onclick="checkCookies('Pip')" class="Pip grid-item Unknown">Mystery event<h2>PIP Den Haag</h2><h3>???</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item All">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item Performance">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('PP')" class="PP grid-item Conversation">Conversation Pieces<h2>Parts Project</h2><h3>Friday, Sunday [12:00 - 18:00]</h3></div>
 
 
   <!----------------------- The Royal Academy of Art The Hague --------------------------------------->
 
 
-      <div onclick="checkCookies('kabk')" class="kabk grid-item All">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Exhibition">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Graduates">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item AutonomousPractice">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Group">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Design">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Art">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Painting">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('kabk')" class="kabk grid-item Typography">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item All">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Exhibition">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Graduates">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item AutonomousPractice">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Group">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Design">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Art">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Painting">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
+      <div onclick="checkCookies('KABK')" class="KABK grid-item Typography">Graduation Show 2021<h2>The Royal Academy of Art The Hague </h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
 
   <!----------------------- Stroom Den Haag --------------------------------------->
@@ -365,26 +316,33 @@
   <!----------------------- The Grey Space in the Middle --------------------------------------->
 
 
-      <div onclick="checkCookies('grey')" class="grey grid-item All">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
-      <div onclick="checkCookies('grey')" class="grey grid-item FoodandDrink">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
-      <div onclick="checkCookies('grey')" class="grey grid-item Music">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
-      <div onclick="checkCookies('grey')" class="grey grid-item DJ">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item All">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item FoodandDrink">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item Music">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item DJ">Thursday Dinner Session<h2>The Grey Space in the Middle</h2><h3>Thursday [18:30]</h3></div>
+
+
+      <div onclick="checkCookies('Grey')" class="Grey grid-item All">Facing non objects, can we still run?<h2>Mike & Sid - The Grey Space in the Middle</h2><h3>Friday, Saturday, Sunday</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item Livestream">Facing non objects, can we still run?<h2>Mike & Sid - The Grey Space in the Middle</h2><h3>Friday, Saturday, Sunday</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item Performance">Facing non objects, can we still run?<h2>Mike & Sid - The Grey Space in the Middle</h2><h3>Friday, Saturday, Sunday</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item Collaborative">Facing non objects, can we still run?<h2>Mike & Sid - The Grey Space in the Middle</h2><h3>Friday, Saturday, Sunday</h3></div>
+      <div onclick="checkCookies('Grey')" class="Grey grid-item Art">Facing non objects, can we still run?<h2>Mike & Sid - The Grey Space in the Middle</h2><h3>Friday, Saturday, Sunday</h3></div>
 
 
   <!----------------------- Den Haag Street Art --------------------------------------->
 
 
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item All">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Exhibition">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item StreetArt">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item City">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Painting">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Talk">The Hague Street Art<h2>he Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Tour">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Art">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item LargeScale">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Video">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
-      <div onclick="checkCookies('streetArt')" class="streetArt grid-item Installation">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item All">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Exhibition">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item TheHagueStreetArt">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item City">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Painting">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Talk">The Hague Street Art<h2>he Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Tour">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Art">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item LargeScale">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Video">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
+      <div onclick="checkCookies('TheHagueStreetArt')" class="TheHagueStreetArt grid-item Installation">The Hague Street Art<h2>The Hague Street Art</h2><h3>Satuday [12:00; 14:00; 16:00]</h3></div>
 
 
   <!----------------------- Trixie --------------------------------------->
@@ -428,13 +386,6 @@
       <div onclick="checkCookies('1646')" class="1646 grid-item Art">Tarwe en Walnoot<h2>1646</h2><h3>Thursday [19:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
 
 
-  <!----------------------- The Sculpture Gallery  --------------------------------------->
-
-
-      <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item All">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Sculpture">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Group">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
-      <div onclick="checkCookies('SculptureGallery')" class="SculptureGallery grid-item Exhibition">Sculpture Re-Arrangement<h2>The Sculpture Gallery</h2><h3>Thursday [17:00 - 23:00], Friday, Saturday, Sunday [12:00 - 18:00]</h3></div>
     </div>
   </div>
 
