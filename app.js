@@ -270,12 +270,12 @@ var dictioPlaces = {
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
 
-      // target= qrCodeMessage.replace('https://pnofrc.github.io/THC/','').replace('/index.html/','')
-      // console.log(cookies.includes(target))
+      target= qrCodeMessage.replace('https://weirdfloor.thehaguecontemporary.nl/','').replace('/index.html/','')
+      console.log(cookies.includes(target))
 
-      target = qrCodeMessage
-      alert(target)
-      console.log(target)
+      // target = qrCodeMessage
+      // alert(target)
+      // console.log(target)
 
       if (cookies.includes(target)){
          Cookies.set(target,1);
