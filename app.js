@@ -9,7 +9,7 @@ var bez
 
 // MAP 
 let start = [52.07400906993372, 4.323222423616773]
-var map = L.map('map', { scrollWheelZoom: true }).setView(start, 13);
+var map = L.map('map', { scrollWheelZoom: true,tap: false }).setView(start, 13);
 
 let madonna = Cookies.get()
 
@@ -29,17 +29,28 @@ arr2 = []
   var gps = (L.control.locate({
     locateOptions: {
             enableHighAccuracy: true,
-            showPopup: true,strings: {
-              title: `<div onclick="${geoFindMe()}"></div>`
-              
+            showPopup: true,
+            strings: { text: 'test',
+              title: `<div onclick="${geoFindMe()};"></div>`,
+              // outsideMapBoundsMsg: 'ciaoscaca',
+              // text: 'cane',
+              // popup: 'ciao'
           },
             maxZoom: 14,
             cacheLocation: true,
-          getLocationBounds: true
+          getLocationBounds: true,
+          watch: true,
+          setView: true
+     
 }
 })).addTo(map);
 gps.start();
 
+// TILES
+L.tileLayer("https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=WqL6ymt9YHsM4S1RmjmG", {
+  maxZoom: 18,
+   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler,</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+}).addTo(map);
 
 let constr = ['NNP','NN']
 
@@ -93,13 +104,6 @@ var dictioPlaces = {
     }
   }
 
-
-  
-  // TILES
-  L.tileLayer("https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=WqL6ymt9YHsM4S1RmjmG", {
-    maxZoom: 18,
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-  }).addTo(map);
   
   // QR button  
   L.easyButton('fa-qrcode fa-2x', function(btn, map){
@@ -157,6 +161,8 @@ var dictioPlaces = {
   cookiesDone.forEach(cookieDon => {
     $(`.${cookieDon}`).css('background-color','white')
     $(`.${cookieDon}`).css('color','black')
+    $(`.${cookieDon}`).css("pointer-events", "none")
+
 
     if(Cookies.get(cookieDon) == 1){
       console.log(Cookies.get(cookieDon))
@@ -215,7 +221,7 @@ var dictioPlaces = {
         let lon = dictioPlaces[element][0][0];
         let lat = dictioPlaces[element][0][1];
         let markerLocation = new L.LatLng(lon,lat);
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1><br>`+dictioPlaces[element][1]+`<br><button class="btn-success btn-marker"  onclick=Cookies.remove("${element}");location.reload()>Remove</button>`).addTo(map);
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${dictioPlaces[element][2]}</h1>`+`<button class="btn-success btn-marker"  onclick=Cookies.remove("${element}");location.reload()>Remove</button>`,{className: 'todo'}).addTo(map);
         map.addLayer(marker)
       });
 
@@ -250,34 +256,50 @@ var dictioPlaces = {
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
       target= qrCodeMessage.replace('http://weirdfloor.thehaguecontemporary.nl/places/','')
-      // alert(target)
-
-      // target = qrCodeMessage
-      // alert(target)
-      // console.log(target)
 
       if (cookies.includes(target)){
          Cookies.set(target,1);
         const index = cookies.indexOf(target);
           if (index > -1) {
               cookies.splice(index, 1);
-  }
-
-
-        alert('Cool! It seems you have been to ', dictioPlaces[target[2]] )
-
-
-        location.reload()
-      } 
-          else{
-        alert("Hey! Maybe you went to the wrong place? :O")
-        location.reload()
-      }
-  }
+          }
+      //   $("#showCurrentQR").fadeIn();
+      //   $("#showCurrentQR").append(target);
+      //   $("#showCurrentQR").append('<button onclick="location.reload()">Continue</button>');
+          Swal.fire({
+            title: 'Uhhh!',
+            html: 'It looks you have been to '+dictioPlaces[target[2]]+' :)',
+            confirmButtonText: 'Next',
+          }).then((result) => {
+            if (result.isConfirmed) {
+            location.reload()
+            }
+          })
+    } 
+        else{
+          Swal.fire({
+            title: 'Hey!',
+            html: 'Maybe you went to the wrong place? :O',
+          }).then((result) => {
+            if (result.isConfirmed) {
+             location.reload()
+            }
+          })
+        }
+    }
     )
     .catch(err => {
-      // failure, handle it.
+      Swal.fire({
+        title: 'Hey!',
+        html: 'Something went wrong.<br>Could you try again?<br>Maybe scan the QR a bit closer...',
+        confirmButtonText: 'Try Again!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+         location.reload()
+        }
+      })
       console.log(`Error scanning file. Reason: ${err}`)
+      // location.reload()
     });
   });
   
@@ -289,7 +311,7 @@ var dictioPlaces = {
     var markerOptions = {
         title: element,
         clickable: true,
-        icon: doneIcon
+        icon: doneIcon,
         }
     
         let lon = dictioPlaces[element][0][0];
@@ -298,7 +320,7 @@ var dictioPlaces = {
         let markerLocation = new L.LatLng(lon,lat);
 
         let c = Cookies.get(element)
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c}</h1><br><p>${dictioPlaces[element][2]}</p>`).addTo(map);
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c}</h1><p>${dictioPlaces[element][2]}</p>`,{className: 'done'}).addTo(map);
     
         map.addLayer(marker)
   }); 
@@ -525,3 +547,5 @@ if(cookiesDone.length> 0 && cookies.length==0){
 // let lngCentro = JSON.stringify( bez.getCenter()["lng"])
 // let numeriCentro = [parseFloat(latCentro),parseFloat(lngCentro)]
 // map.panTo(L.latLng(numeriCentro[0],numeriCentro[1]));
+
+
