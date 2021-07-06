@@ -14,8 +14,10 @@ var map = L.map('map', { scrollWheelZoom: true }).setView(start, 13);
 let madonna = Cookies.get()
 
 if (jQuery.isEmptyObject(madonna)){
+  $("#instructions").fadeIn()
   $("#map").css("display","none")
   $("#mapToggle").click(function () {
+    $("#map").slideDown()
     location.reload()
 })
 }
