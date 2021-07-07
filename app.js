@@ -510,7 +510,7 @@ if(cookiesDone.length> 0){
 
 for (item in cookiesDone){
   let poetTot = Cookies.get(cookiesDone[item])
-  $("#showPic").append(`<p>${poetTot}</p>`);
+  $("#showPic").append(`<p>${poetTot.replace(","," ")}</p>`);
 }
 
 function end(){
