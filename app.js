@@ -446,6 +446,7 @@ if (lenPointsDone > 0){
 
 function showInfo(){
   $("#info").fadeIn();
+  $("#pathcreator").fadeOut();
 }
 
 function showInstru(){
