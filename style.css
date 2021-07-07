@@ -317,7 +317,8 @@ body {
       position: fixed;
       display: none;
       z-index: 10;
-      background-color: rgba(255,255,255,0.75);
+      background-color:   rgba(253, 214, 2, 0.75);
+
       box-shadow: 0 0 0 8px black;
       border-radius: 20px;
       border: solid 2px black;
@@ -346,7 +347,7 @@ body {
     height: 20%;
     position: fixed;
     z-index: 200;
-    display: none;
+    /* display: none; */
     background-color: rgba(255,255,255,0.75);
     box-shadow: 0 0 0 8px black;
     border-radius: 20px;
