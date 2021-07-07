@@ -318,7 +318,10 @@ var dictioPlaces = {
         let markerLocation = new L.LatLng(lon,lat);
 
         let c = Cookies.get(element)
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c}</h1><p>${dictioPlaces[element][2]}</p>`,{className: 'done'}).addTo(map);
+        
+        // let c = JSON.stringify(c)
+        console.log(c.replace(","," "))
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c.replace(","," ")}</h1>`,{className: 'done'}).addTo(map);
     
         map.addLayer(marker)
   }); 

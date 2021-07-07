@@ -180,31 +180,36 @@ body {
 } */
 
 .todo .leaflet-popup-tip{
-  background-color: white;
+  background-color: black;
 }
 
 .todo  .leaflet-popup-content-wrapper{
-  background-color: white;
+  background-color: black;
 }
 
 .todo .leaflet-popup-content-wrapper h1{
-  color: red;
+  color: yellow;
 }
 
 .todo .leaflet-popup-content-wrapper button{
-  background-color: red;
-  border: red;
-  color: white;
+  background-color: yellow;
+  /* border: red; */
+  color: black;
 }
 
 
 .done .leaflet-popup-tip{
-  background-color: yellow;
+  background-color: white;
 }
 
 .done  .leaflet-popup-content-wrapper{
-  background-color: yellow;
-  color: black;
+  background-color: white;
+  color: #E52620 
+}
+
+.done  .leaflet-popup-content-wrapper h1{
+  /* background-color: white; */
+  color: #E52620 
 }
 
 /* ———————————————————— BTN FOR ALL CATEOGORIES —————————————————————————————————————————————— */
@@ -422,40 +427,50 @@ div.filter{
   width: 100%;
   height: 100%;
   text-align: center;
+  border-radius: 7px;
 }
 
 #qr{
   background: black;
   padding: auto;
+  border-radius: 7px;
 } 
 
-#qr span{
-  /* width: 10px; */
-  /* height: 50px; */
-  /* margin: auto; */
-  padding: auto;
-} 
 
-.leaflet-control-locate.leaflet-bar.leaflet-control.active.following a{
+
+
+.leaflet-top.leaflet-left a:nth-child(1){
+  background: black;
+  color: rgb(253,214,2);
+  border-top-left-radius:7px;
+  border-top-right-radius:7px
+}
+
+.leaflet-top.leaflet-left a:nth-child(2){
+  background: black;
+  color: rgb(253,214,2);
+  border-bottom-left-radius:7px;
+  border-bottom-right-radius:7px
+}
+
+
+
+button.swal2-confirm.swal2-styled{
+  color: white;
+  background-color: rgb(253, 214, 5);
+}
+
+.swal2-popup.swal2-modal.swal2-show{
   background: black;
 }
 
-.leaflet-top.leaflet-left a{
-  background: black;
-  color: rgb(253,214,2);
+#swal2-html-container{
+  color:white
 }
-
-/* .fa-qrcode{
-  color: rgb(253,214,2);
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  text-align: center;
-
-} */
-
-
-
+#swal2-title{
+  color: yellow;
+  
+}
 
 
 /* ———————————————————— MEDIA QUERIES MAX 630 PX —————————————————————————————————————————————— */
