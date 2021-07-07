@@ -466,9 +466,9 @@ function showMap(){
         } else {
           //   $('#map').css("display","block")
           $('#map').slideDown();
+          $("#showPic").slideDown()
         }
       }
-      $("#showPic").slideDown()
     }
 
     var $grid = $('.grid').isotope({
