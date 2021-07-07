@@ -118,7 +118,7 @@ var dictioPlaces = {
   // QR button  
   L.easyButton("<img style='width:20px' src='qr.png'>", function(btn, map){
     $( "#reader" ).fadeToggle()
-    // $( "#reader" ).css("display","flex")
+    $( "#reader" ).css("display","flex")
     $( "#reader" ).css("justify-content","center")
     $( "#reader" ).css("align-items","center")
   }, 'qr', 'qr').addTo(map);
