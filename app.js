@@ -15,6 +15,7 @@ let madonna = Cookies.get()
 
 if (jQuery.isEmptyObject(madonna)){
   $("#instructions").fadeIn()
+  $("#showPic").css("display","none")
   $("#map").css("display","none")
   $("#mapToggle").click(function () {
     $("#map").slideDown()
@@ -76,7 +77,7 @@ var dictioPlaces = {
     'West': [[52.082672849187915, 4.315001555793077], '<br><p>Dolor sit Amet</p>', 'West Den Haag'],
     }
     
-    let constr = ['NN','VBN','DT']
+    let constr = ['NN','VBN','RB', 'JJ','NNS']
     // NNP NNS NN IN DT VBZ JJ CC PRP VBN TO RB
     
     // PRP pronoun I he she
@@ -190,7 +191,7 @@ var dictioPlaces = {
           poet.push(pp)
           // console.log(poet)
         });  
-        let genPoet = poet.toString().replace(',',' ')
+        let genPoet = poet.toString().replace(',',' ').replace(","," ").replace(","," ").replace(","," ").replace(","," ").replace(","," ")
         Cookies.set(cookieDon,genPoet)
     }
   })
@@ -336,8 +337,8 @@ var dictioPlaces = {
         let c = Cookies.get(element)
         
         // let c = JSON.stringify(c)
-        console.log(c.replace(","," "))
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h2>"${c.replace(","," ")}"</h2>`,{className: 'done'}).addTo(map);
+        console.log(c)
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h2>"${c}"</h2>`,{className: 'done'}).addTo(map);
     
         map.addLayer(marker)
   }); 
@@ -528,7 +529,7 @@ if(cookiesDone.length> 0){
 
 for (item in cookiesDone){
   let poetTot = Cookies.get(cookiesDone[item])
-  $("#showPicContent").append(`<p>${poetTot.replace(","," ")}</p>`);
+  $("#showPicContent").append(`<p>${poetTot}</p>`);
 }
 
 function end(){
@@ -542,7 +543,7 @@ if(cookiesDone.length> 0 && cookies.length==0){
   for (item in cookiesDone){
     let poetTot = Cookies.get(cookiesDone[item]);
     $("#pathcreator").fadeOut()
-    $("#endContent").append(`<p>${poetTot.replace(","," ").toLowerCase()}</p>`)}
+    $("#endContent").append(`<p>${poetTot.toLowerCase()}</p>`)}
 
   // $("#end").append(``);
   // $("#end").css('display','flex')
