@@ -417,7 +417,7 @@ div.filter{
   background-color: #E52620;
 }
 
-#mappa{
+ #mappa{
   background: black;
   width: 100%;
   height: 100%;
@@ -426,7 +426,15 @@ div.filter{
 
 #qr{
   background: black;
-}
+  padding: auto;
+} 
+
+#qr span{
+  /* width: 10px; */
+  /* height: 50px; */
+  /* margin: auto; */
+  padding: auto;
+} 
 
 .leaflet-control-locate.leaflet-bar.leaflet-control.active.following a{
   background: black;
@@ -437,14 +445,14 @@ div.filter{
   color: rgb(253,214,2);
 }
 
-.fa-qrcode{
+/* .fa-qrcode{
   color: rgb(253,214,2);
   width: 100%;
   height: 100%;
   font-size: 20px;
   text-align: center;
 
-}
+} */
 
 
 

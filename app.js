@@ -104,7 +104,7 @@ var dictioPlaces = {
 
   
   // QR button  
-  L.easyButton('fa-qrcode', function(btn, map){
+  L.easyButton("<img style='width:20px' src='qr.png'>", function(btn, map){
     $( "#reader" ).fadeToggle()
     $( "#reader" ).css("display","flex")
     $( "#reader" ).css("justify-content","center")
