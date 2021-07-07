@@ -32,15 +32,13 @@ arr2 = []
             showPopup: true,
             strings: { text: 'test',
               title: `<div onclick="${geoFindMe()};"></div>`,
-              // outsideMapBoundsMsg: 'ciaoscaca',
-              // text: 'cane',
-              // popup: 'ciao'
+
           },
             maxZoom: 14,
             cacheLocation: true,
           getLocationBounds: true,
-          watch: true,
-          setView: true
+          // watch: true,
+          // setView: true
      
 }
 })).addTo(map);
@@ -52,7 +50,7 @@ L.tileLayer("https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=WqL6ymt
    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler,</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
 }).addTo(map);
 
-let constr = ['NNP','NN']
+let constr = ['NNP','NN','DT']
 
 
 //DICTIONARY
@@ -85,7 +83,7 @@ var dictioPlaces = {
   // console.log(Object.keys(dictioPlaces))
   
   // random color picker
-  var colori = ['yellow','red','black','white','green'];
+  var colori = ['yellow','#E52620 ','black','white','green'];
   let r = Math.floor(Math.random() * (colori.length ))
 
   var r2
@@ -106,7 +104,7 @@ var dictioPlaces = {
 
   
   // QR button  
-  L.easyButton('fa-qrcode fa-2x', function(btn, map){
+  L.easyButton('fa-qrcode', function(btn, map){
     $( "#reader" ).fadeToggle()
     $( "#reader" ).css("display","flex")
     $( "#reader" ).css("justify-content","center")
@@ -114,11 +112,11 @@ var dictioPlaces = {
   }, 'qr', 'qr').addTo(map);
   
   // BACK HOME
-  L.easyButton("fa-arrow-left fa-2x",function(btn,map){
+  L.easyButton("<img style='width:20px' src='arrow.png'>",function(btn,map){
     $("#showPic").slideUp()
     $('#map').slideUp()
     $( "#reader" ).fadeOut()
-  }, 'menu/mappa', 'menu/mappa').addTo(map);
+  }, 'mappa', 'mappa').addTo(map);
   
   // ICONS
   var prevIcon = L.icon({
@@ -151,7 +149,9 @@ var dictioPlaces = {
 
   //TO CHECK TODO PLACES
   cookies.forEach(place => {
-    $(`.${place}`).css('background-color','red')
+    $(`.${place}`).css('background-color','#E52620')
+    $(`.${place}`).css('color','white')
+
     // cookies.push(place)
     cookiesChanged.push(place)
   });
@@ -181,7 +181,7 @@ var dictioPlaces = {
 
   // TO ADD CHOICE
   function add(place){
-    $(`.${place}`).css('background-color','red')
+    $(`.${place}`).css('background-color','#E52620 ')
     Cookies.set(place, 0,   { expires: 30 })
     cookies.push(place)
     let coo = Cookies.get();
@@ -252,6 +252,7 @@ var dictioPlaces = {
     var target
     // Use the first item in the list
     const imageFile = e.target.files[0];
+
     html5QrCode.scanFile(imageFile, /* showImage= */false)
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
@@ -263,12 +264,9 @@ var dictioPlaces = {
           if (index > -1) {
               cookies.splice(index, 1);
           }
-      //   $("#showCurrentQR").fadeIn();
-      //   $("#showCurrentQR").append(target);
-      //   $("#showCurrentQR").append('<button onclick="location.reload()">Continue</button>');
           Swal.fire({
             title: 'Uhhh!',
-            html: 'It looks you have been to '+dictioPlaces[target[2]]+' :)',
+            html: 'It looks you have been to '+dictioPlaces[target][2]+' :)',
             confirmButtonText: 'Next',
           }).then((result) => {
             if (result.isConfirmed) {
@@ -426,6 +424,15 @@ if (lenPointsDone > 0){
   console.log(arr2)
   L.curve(arr2 ,{color: colori[r2] }).addTo(map);
 }
+
+function showInfo(){
+  $("#info").fadeIn();
+}
+
+function showInstru(){
+  $("#instru").fadeIn();
+}
+  
   
 
 function showMap(){
@@ -485,6 +492,8 @@ if (localStorage['tagClass']){
     $grid.isotope({
                 filter:  intro,
             });
+    $(`.btn.btn-success[data-name='${intro}']`).addClass('active')
+    
 } else {
     $grid.isotope({
                 filter: ".All"

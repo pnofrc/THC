@@ -1,20 +1,15 @@
 /* ———————————————————— FONTS  —————————————————————————————————————————————— */
 
+
 @font-face {
   font-family: Brut;
-  src: url(fonts/Px\ Grotesk\ Regular.ttf);
+  src: url(fonts/Brut_Grotesque-Text.woff);
   font-weight: normal;
   font-style: normal;
   }
 @font-face {
-  font-family: Union;
-  src: url(fonts/Sainte-Colombe.woff);
-  font-weight: normal;
-  font-style: normal;
-  }
-@font-face {
-  font-family: UnionBold;
-  src: url(fonts/Sainte\ Colombe\ Bold.otf);
+  font-family: Apoc;
+  src: url(fonts/ATApocLight.woff);
   font-weight: normal;
   font-style: normal;
   }
@@ -33,6 +28,11 @@ body {
     width: 100%;
     height: 100%;
     display: none;
+    position: absolute;
+    
+  }
+  #instructions h5{
+    color: yellow;
   }
 
 .container {
@@ -45,7 +45,7 @@ body {
 /* ————  UNUSED TITLE TO ACTIVATE WITH H5 —————————— */
 
 .h1, h1 {
-  font-family: 'UnionBold';
+  font-family: 'Apoc';
   letter-spacing: -0.5px;  
   font-size: 17px;
   padding-top: 10px;
@@ -89,7 +89,7 @@ body {
 
 
 .h4, h4 {
-  font-family: 'UnionBold';
+  font-family: 'Brut';
   letter-spacing: -0.5px;  
   font-size: 17px;
   padding-top: 10px;
@@ -105,7 +105,7 @@ body {
 
 
 .h5, h5 {
-  font-family: 'Union';
+  font-family: 'Apoc';
   letter-spacing: 0px;  
   font-size: 40px;
   padding-top: 20px;
@@ -114,6 +114,8 @@ body {
   color: black;
   font-weight: normal;
   font-style: normal;
+
+  /* margin-top: 3vw */
   }
 
 /* ———— UNUSED ALTERNATIVE TITLE  —————————— */
@@ -208,7 +210,7 @@ body {
 /* ———————————————————— BTN FOR ALL CATEOGORIES —————————————————————————————————————————————— */
 
  .btn-success {
-    font-family: 'Apoc';
+    font-family: 'Brut';
     border-color: black;
     border-radius: 10px 10px 10px 10px;
     max-width: 50%;
@@ -220,7 +222,7 @@ body {
     text-align: center; 
   }
 .btn-success:hover {
-    font-family: 'Apoc';
+    font-family: 'Brut';
     border-color: black;
     border-radius: 15px 15px  15px 15px;
     stroke-width: 0px;
@@ -231,7 +233,7 @@ body {
     transition-delay: 0s;
   }
 .btn-success:not([disabled]):not(.disabled).active, .btn-success:not([disabled]):not(.disabled):active, .show > .btn-success.dropdown-toggle {   
-    font-family: 'Apoc';
+    font-family: 'Brut';
     color: black;
     border-color: rgb(255,224,0);
     border-radius: 15px 15px  15px 15px;
@@ -258,19 +260,34 @@ body {
     /* display: none; */
     position: fixed;
     z-index: 10;
+    top: 0;
     border: solid 8px black;
     box-shadow: 0 0 0 8px black;
     border-radius: 20px;
   }
 
   #map h1{
-      font-family: ApocBold;
+      font-family: 'Apoc';
   }
 
-  #mapToggle{
-      position: fixed;
-      /* z-index: 100; */
-     /* right: 100px; */
+  #buttons{
+    font-size: 16px;
+    margin-top: 2vw;
+    padding: 0 2vw;
+    font-family: 'Brut';
+    width: 100%;
+    /* position: absolute; */
+    /* z-index: 10; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    /* padding-bottom: 10vw; */
+  }
+
+  .toggleButtonsStyle{
+    color: rgb(253, 214, 5);
+    background-color: black;
   }
 
   #pathcreator{
@@ -284,8 +301,15 @@ body {
       z-index: 10;
       background-color: rgba(253, 214, 5,0.3);
       width: 100%;
-
+      height: 20%;
+      margin: 80% 0;
+      /* top: 0; */
   }
+
+  #reader #file-upload-button button{
+    height: 300px;
+  }
+
 
   #qr-input-file{
       width: 60%;
@@ -324,28 +348,24 @@ body {
   display: none;
   flex-direction: column ;
   /* justify-content: flex-start */
+  top: 0;
 }
 
 #end p{
   
-font-size: 25px;
+font-size: 20px;
   color: white;
-  /* border: solid red 1px; */
   width: 80%;
-  /* line-height: 10px; */
   margin: auto;
-  /* padding: 2px; */
   z-index: 3; 
   position: relative;
 }
 
-.popup{
-  width: 100%;
-  height: 100%;
+#end button{
   background-color: black;
-  color:rgb(253, 214, 5);
-
+  color: rgb(253, 214, 5);;
 }
+
 
 #showCurrentQR{
   background-color:rgb(253, 214, 5);
@@ -354,6 +374,80 @@ font-size: 25px;
   z-index: 10000;
   display: none;
 }
+
+#info{
+  display: none;
+}
+
+#instru{
+  display: none;
+}
+
+.popup{
+  font-family: 'Brut';
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  background-color: black;
+  color:rgb(253, 214, 5);
+  padding: 10px;
+  position: absolute;
+  z-index: 999;
+}
+
+.popup h1{
+  color:rgb(253, 214, 5);
+  font-size: 7vw;
+}
+
+.popup a{
+  color: white;
+}
+
+.arrowBack{
+  font-family: 'Brut';
+  font-size: 20px;
+}
+
+div.filter{
+  text-align: center;
+}
+
+.selectedPlace{
+  background-color: #E52620;
+}
+
+#mappa{
+  background: black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#qr{
+  background: black;
+}
+
+.leaflet-control-locate.leaflet-bar.leaflet-control.active.following a{
+  background: black;
+}
+
+.leaflet-top.leaflet-left a{
+  background: black;
+  color: rgb(253,214,2);
+}
+
+.fa-qrcode{
+  color: rgb(253,214,2);
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+
+
 
 
 /* ———————————————————— MEDIA QUERIES MAX 630 PX —————————————————————————————————————————————— */
@@ -430,7 +524,7 @@ font-size: 25px;
     width: 100%;
     padding: 1px;
     margin: 0px;
-    color: rgb(253 214 2);
+    color: rgb(253,214,2);
     text-align: center;
     white-space: nowrap;
     font-size: 0.6em;
@@ -456,8 +550,5 @@ font-size: 25px;
     padding-right: 400px;
   }
 
-  .selectedPlace{
-    background-color: red;
-  }
 
 }
