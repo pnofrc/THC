@@ -95,7 +95,7 @@ var dictioPlaces = {
   // to find keys of dictionary
   // console.log(Object.keys(dictioPlaces))
 
-  var colori = ['yellow','#E52620 ','black','white','green'];
+  var colori = ['rgb(253,214,2)','#E52620 ','black','green'];
   let r = Math.floor(Math.random() * (colori.length ))
 
   var r2
@@ -118,7 +118,7 @@ var dictioPlaces = {
   // QR button  
   L.easyButton("<img style='width:20px' src='qr.png'>", function(btn, map){
     $( "#reader" ).fadeToggle()
-    $( "#reader" ).css("display","flex")
+    // $( "#reader" ).css("display","flex")
     $( "#reader" ).css("justify-content","center")
     $( "#reader" ).css("align-items","center")
   }, 'qr', 'qr').addTo(map);
@@ -538,11 +538,12 @@ function end(){
 
 if(cookiesDone.length> 0 && cookies.length==0){
   for (item in cookiesDone){
-    let poetTot = Cookies.get(cookiesDone[item])
-    $("#end").append(`<p>${poetTot}</p>`);
-  }
-  $("#end").append(`<button onclick="end()">End!</button>`);
-  $("#end").css('display','flex')
+    let poetTot = Cookies.get(cookiesDone[item]);
+    $("#pathcreator").fadeOut()
+    $("#endContent").append(`<p>${poetTot.replace(","," ").toLowerCase()}</p>`)}
+
+  // $("#end").append(``);
+  // $("#end").css('display','flex')
   $("#end").fadeIn()
 }
 

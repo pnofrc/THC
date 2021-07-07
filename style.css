@@ -317,15 +317,30 @@ body {
       position: absolute;
       display: none;
       z-index: 10;
-      background-color: rgba(253, 214, 5,0.3);
+      background-color: rgba(255,255,255,0.75);
+      box-shadow: 0 0 0 8px black;
+      border-radius: 20px;
+      border: solid 3px black;
       width: 100%;
-      height: 20%;
-      margin: 80% 0;
-      /* top: 0; */
+      height: 7%;
+      bottom: 23%;
+
+      
+      bottom: 0;
+      width: 23%; 
+      margin: auto 2% 2% 2%;
+      height: 5%;
+      position: fixed;
+      z-index: 200;
+      display: none;
+      background-color: rgba(255,255,255,0.75);
+      box-shadow: 0 0 0 8px black;
+      border-radius: 20px;
+      overflow-y:scroll;
   }
 
   #reader #file-upload-button button{
-    height: 300px;
+    /* height: 300px; */
   }
 
 
@@ -346,10 +361,13 @@ body {
     background-color: rgba(255,255,255,0.75);
     box-shadow: 0 0 0 8px black;
     border-radius: 20px;
+    overflow-y:scroll;
+
 }
 
 #showPicContent{
   margin-top: 10px;
+
 }
 
 #showPic p{
@@ -372,27 +390,31 @@ body {
   height: 100%;
   z-index: 400;
   position: fixed;
-  /* display: flex; */
   background: black;
   display: none;
-  flex-direction: column ;
-  /* justify-content: flex-start */
   top: 0;
+  font-family: 'Apoc';
 }
 
 #end p{
-  
-font-size: 20px;
+  font-size: 20px;
   color: white;
   width: 80%;
   margin: auto;
   z-index: 3; 
-  position: relative;
+}
+
+#endContent{
+  margin-top: 5%;
+  height: 90%;
 }
 
 #end button{
   background-color: black;
-  color: rgb(253, 214, 2);;
+  color: rgb(253, 214, 2);
+  width: 100%;
+  height: 5%;
+  bottom: 0;
 }
 
 
