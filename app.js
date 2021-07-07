@@ -50,8 +50,6 @@ L.tileLayer("https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=WqL6ymt
    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler,</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
 }).addTo(map);
 
-let constr = ['NNP','NN','DT']
-
 
 //DICTIONARY
 
@@ -77,12 +75,26 @@ var dictioPlaces = {
     'UithetGareel': [[52.07480113905305, 4.308013105469062], '<br><p>Dolor sit Amet</p>', 'Uit het Gareel',[{'NNP': ['Uit', 'Het', 'Gareel', 'x', 'PAARD', 'Art', 'Market', 'July', 'Music', 'Uit', 'Het', 'Gareel', 'DJ', 'PAARD', 'Uit', 'Het', 'Gareel', 'Uit', 'Het', 'Gareel', 'Festival', 'Uit', 'Het', 'Gareel', 'Art', 'Market', 'Instagram', 'Alice', 'Mulder', 'Anna', 'Nunes', 'Atay', 'Erik', 'Muusse', 'Erwin', 'Verkade', 'Glitterstudio', 'Irene', 'van', 'Aarle', 'Jessie', 'Hoefnagel', 'Jawgem', 'Marieke', 'Matthijs', 'Mhwark', 'Niels', 'Weerheim', 'Rake', 'Streken', 'Studio', 'Poca', 'Conrad', 'Soundsystem', 'Dim', 'Garden', 'TBA', 'Vinyl', 'TBA', 'Price', 'Bring'], 'RB': ['proudly', 'Furthermore'], 'VBZ': ['presents', 'gives', 'takes', 'is'], 'DT': ['the', 'the', 'a', 'the', 'the', 'an', 'a', 'the', 'an', 'These', 'the', 'the', 'the', 'the', 'the', 'a'], 'JJ': ['second', 'affordable', 'such', 'small', 'young', 'local', 'local', 'offline', 'main', 'young', 'promising', 'fascinating', 'approachable', 'several', 'such', 'Music', 'continuous', 'free', 'own'], 'NN': ['edition', 'art', 'market', 'clothing', 'vinyl', 'floor', 's', 'market', 'place', 'pop', 'temple', 'club', 'initiative', 'platform', 'case', 'work', 'world', 'art', 'way', 'foundation', 'eye', 'uithetgareel', 'information', 'sale', 'Beukwerk', 'Start', 'opening', 'entrance', 'drink', 'bag'], 'IN': ['of', 'with', 'as', 'from', 'as', 'in', 'with', 'for', 'of', 'in', 'for', 'as', 'on', 'about', 'during'], 'NNS': ['stalls', 'artworks', 'prints', 'works', 'artists', 'goals', 'artists', 'people', 'goals', 'events', 'exhibitions', 'works', 'artists', 'Artists', 'records', 'hours'], 'VBG': ['selling', 'Stichting', 'including'], 'CC': ['and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and', 'and'], 'PRP': ['it', 'you'], 'TO': ['to', 'to', 'to', 'to', 'to', 'to', 'to'], 'CD': ['two'], 'VB': ['create', 'sell', 'introduce', 'Keep', 'find', 'buy', 'be'], 'VBD': ['lay'], 'JJR': ['more', 'more', 'more'], 'MD': ['can'], 'VBN': ['announced'], 'RBR': ['more']}]],
     'West': [[52.082672849187915, 4.315001555793077], '<br><p>Dolor sit Amet</p>', 'West Den Haag'],
     }
-
+    
+    let constr = ['NN','VBN','DT']
+    // NNP NNS NN IN DT VBZ JJ CC PRP VBN TO RB
+    
+    // PRP pronoun I he she
+    // CC and etc
+    // RB adverb
+    // TO to
+    // VBN past particple (taken)
+    // JJ adjective
+    // VBZ 3rd person
+    // DT determiner
+    // IN preposition
+    // NN noun sing
+    // NNS noun plural
+    // NNP proper noun, singular
 
   // to find keys of dictionary
   // console.log(Object.keys(dictioPlaces))
-  
-  // random color picker
+
   var colori = ['yellow','#E52620 ','black','white','green'];
   let r = Math.floor(Math.random() * (colori.length ))
 
@@ -151,7 +163,8 @@ var dictioPlaces = {
   cookies.forEach(place => {
     $(`.${place}`).css('background-color','#E52620')
     $(`.${place}`).css('color','white')
-
+    $(`.${place} h2`).css('color','white')
+    $(`.${place} h3`).css('color','white')
     // cookies.push(place)
     cookiesChanged.push(place)
   });
@@ -161,6 +174,9 @@ var dictioPlaces = {
   cookiesDone.forEach(cookieDon => {
     $(`.${cookieDon}`).css('background-color','white')
     $(`.${cookieDon}`).css('color','black')
+    $(`.${cookieDon}`).css('color','black')
+    $(`.${cookieDon} h3`).css('color','grey')
+
     $(`.${cookieDon}`).css("pointer-events", "none")
 
 
@@ -321,7 +337,7 @@ var dictioPlaces = {
         
         // let c = JSON.stringify(c)
         console.log(c.replace(","," "))
-        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h1>${c.replace(","," ")}</h1>`,{className: 'done'}).addTo(map);
+        let marker = new L.Marker(markerLocation, markerOptions).bindPopup(`<h2>"${c.replace(","," ")}"</h2>`,{className: 'done'}).addTo(map);
     
         map.addLayer(marker)
   }); 
@@ -510,7 +526,7 @@ if(cookiesDone.length> 0){
 
 for (item in cookiesDone){
   let poetTot = Cookies.get(cookiesDone[item])
-  $("#showPic").append(`<p>${poetTot.replace(","," ")}</p>`);
+  $("#showPicContent").append(`<p>${poetTot.replace(","," ")}</p>`);
 }
 
 function end(){
