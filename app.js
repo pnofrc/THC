@@ -275,6 +275,7 @@ var dictioPlaces = {
     .then(qrCodeMessage => {
       // success, use qrCodeMessage
       target= qrCodeMessage.replace('http://weirdfloor.thehaguecontemporary.nl/places/','')
+alert(target)
 
       if (cookies.includes(target)){
          Cookies.set(target,1);
