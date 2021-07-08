@@ -15,6 +15,7 @@ let madonna = Cookies.get()
 
 if (jQuery.isEmptyObject(madonna)){
   $("#instructions").fadeIn()
+  $("#pathcreator").fadeOut()
   $("#showPic").css("display","none")
   $("#map").css("display","none")
   $("#mapToggle").click(function () {
@@ -452,6 +453,7 @@ function showInfo(){
 
 function showInstru(){
   $("#instru").fadeIn();
+  $("#pathcreator").fadeOut();
 }
   
   
